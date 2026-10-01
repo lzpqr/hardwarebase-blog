@@ -1,0 +1,20 @@
+# Use LF for text files so Windows and Cloudflare builds stay consistent.
+* text=auto eol=lf
+
+# Windows-only scripts should keep CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary assets must never be converted.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.pdf binary
+*.zip binary

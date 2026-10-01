@@ -67,62 +67,61 @@ https://github.com/lzpqr/hardwarebase-blog
 
 看到 `README.md`、`source`、`package.json` 等文件，就表示发布成功。
 
-## 第四步：打开 Cloudflare Pages
+## 第四步：修改当前 Cloudflare 项目
 
-登录：
+当前 Cloudflare 统一入口创建的是 Workers 构建环境。项目已经配置为使用 Workers 静态资源部署，不需要改用 Pages 命令。
 
-https://dash.cloudflare.com/
-
-然后依次操作：
-
-1. 进入 `Workers & Pages`。
-2. 点击 `Create application`。
-3. 选择 `Pages`。
-4. 点击 `Connect to Git`。
-5. 授权 Cloudflare 访问 GitHub。
-6. 选择仓库：
+回到刚才的 Cloudflare 项目，进入：
 
 ```text
-lzpqr/hardwarebase-blog
+Settings → Builds & deployments
 ```
 
-7. 点击 `Begin setup`。
-
-## 第五步：填写构建配置
-
-按照下面填写，不需要修改其他高级选项：
+填写以下配置：
 
 | 配置项 | 填写内容 |
 | --- | --- |
-| Project name | `hardwarebase-blog` |
-| Production branch | `main` |
 | Build command | `npm run build` |
-| Build output directory | `public` |
-| Framework preset | `Hexo` 或 `None` |
+| Deploy command | `npx wrangler deploy` |
+| Build output directory | `public`（如果页面要求填写） |
+| Root directory | 留空或填 `/` |
+| Environment variable | `NODE_VERSION=22.14.0` |
 
-在环境变量中添加：
+`wrangler.toml` 已经包含：
 
-```text
-NODE_VERSION=22.14.0
+```toml
+[assets]
+directory = "./public"
+not_found_handling = "404-page"
 ```
 
-然后点击：
+所以 `npx wrangler deploy` 会把 `public` 目录作为静态网站部署，不需要额外的 Worker 代码。
+
+不要使用：
 
 ```text
-Save and Deploy
+npx wrangler pages deploy public --project-name=hardwarebase-blog
 ```
 
-## 第六步：等待部署完成
+当前 Cloudflare 构建令牌没有 Pages 部署权限，这个命令会出现 `Authentication error [code: 10000]`。
+
+保存设置后点击：
+
+```text
+Retry deployment
+```
+
+## 第五步：等待部署完成
 
 Cloudflare 会自动下载依赖、构建博客并发布网站。
 
 首次构建通常需要几分钟。部署成功后，会出现一个类似下面的网址：
 
 ```text
-https://hardwarebase-blog.pages.dev
+https://hardwarebase-blog.<你的-workers-子域>.workers.dev
 ```
 
-打开这个网址，检查：
+打开网址并检查：
 
 - 首页能否正常打开
 - 文章能否正常阅读
@@ -131,18 +130,16 @@ https://hardwarebase-blog.pages.dev
 - 浅色和深色模式是否正常
 - 搜索是否可以打开
 
-## 第七步：把正式网址告诉我
+## 第六步：把正式网址告诉我
 
-把 Cloudflare 提供的 `*.pages.dev` 地址发给我。
+把 Cloudflare 生成的 `*.workers.dev` 地址发给我。
 
 我会继续：
 
 1. 更新 `_config.yml` 中的正式网址。
 2. 重新执行构建检查。
-3. 提交修改。
-4. 告诉你在 GitHub Desktop 中如何推送最后的更新。
-5. 再检查 Cloudflare 是否完成部署。
-
+3. 告诉你需要在 GitHub Desktop 中提交和推送的文件。
+4. 再检查 Cloudflare 是否完成部署。
 ## 如果遇到问题
 
 ### GitHub Desktop 找不到项目
@@ -161,16 +158,35 @@ H:\ai\codex\web
 
 回到 GitHub 授权页面，允许 Cloudflare 访问你的 GitHub 仓库。
 
-### Cloudflare 构建失败
+### Cloudflare 报 Missing entry-point
 
-复制 Cloudflare 构建日志中的错误信息发给我。不要自行修改构建命令，当前正确配置是：
+确认 `wrangler.toml` 包含：
 
-```text
-命令：npm run build
-输出目录：public
-Node.js：22.14.0
+```toml
+[assets]
+directory = "./public"
+not_found_handling = "404-page"
 ```
 
+确认 Deploy command 是：
+
+```text
+npx wrangler deploy
+```
+
+### Cloudflare 报 Authentication error code 10000
+
+不要使用 Pages 部署命令。当前构建环境应使用：
+
+```text
+npx wrangler deploy
+```
+
+然后点击 `Retry deployment`。
+
+### 构建仍然失败
+
+复制 Cloudflare 日志最后 30 行发给我，不要发送密码或 API Token。
 ## 安全提醒
 
 不要把以下内容发给任何人：
