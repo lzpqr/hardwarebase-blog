@@ -1,178 +1,184 @@
-# GitHub 与 Cloudflare Pages 部署清单
+# 最简单的上线步骤
 
-这份清单用于把当前博客从本地项目发布到 GitHub，再由 Cloudflare Pages 自动构建和部署。
+这份文档只保留最省心的一条路径：
 
-## 一、准备账号
+**GitHub Desktop 发布代码 → Cloudflare Pages 自动部署**
 
-需要：
+不需要先学习 Git 命令，也不需要写服务器代码。
 
-1. GitHub 账号
-2. Cloudflare 账号
-3. 可用的 Node.js 22.14.0
-4. Git 命令行或 GitHub Desktop
+## 第一步：安装 GitHub Desktop
 
-当前项目已经初始化 Git 仓库，分支为 `main`，但本机尚未安装正式的 Git 命令行。
+下载并安装：
 
-## 二、在 GitHub 创建仓库
+https://desktop.github.com/
 
-1. 登录 GitHub。
-2. 打开 `https://github.com/new`。
-3. 仓库名称建议填写：
+安装后打开 GitHub Desktop，使用你的 GitHub 账号登录：
 
 ```text
-hardwarebase-blog
+lzpqr
 ```
 
-4. 仓库可见性选择 Public 或 Private。
-5. 不要勾选初始化 README、`.gitignore` 或 License，因为本地项目已经包含这些文件。
-6. 创建仓库后，复制仓库地址，例如：
+如果浏览器要求登录或授权，按页面提示完成即可。
+
+## 第二步：把本地项目加入 GitHub Desktop
+
+在 GitHub Desktop 中：
+
+1. 点击顶部菜单 `File`。
+2. 选择 `Add local repository`。
+3. 选择这个目录：
 
 ```text
-https://github.com/你的用户名/hardwarebase-blog.git
+H:\ai\codex\web
 ```
 
-## 三、把本地项目推送到 GitHub
+4. 点击 `Add repository`。
 
-如果使用 Git 命令行，在当前项目目录执行：
+项目已经包含 Git 仓库和远程地址，GitHub Desktop 应该会自动识别：
 
-```bash
-git remote add origin https://github.com/你的用户名/hardwarebase-blog.git
-git push -u origin main
+```text
+origin: https://github.com/lzpqr/hardwarebase-blog.git
 ```
 
-如果 `origin` 已经存在，先检查：
+## 第三步：发布到 GitHub
 
-```bash
-git remote -v
+如果 GitHub Desktop 顶部出现 `Changes`，说明还有本次更新尚未提交：
+
+1. 在 Summary 中填写 `更新部署说明`。
+2. 点击 `Commit to main`。
+3. 然后继续下面的推送步骤。
+
+如果 GitHub Desktop 显示 `Publish branch`：
+
+1. 点击 `Publish branch`。
+2. 确认仓库名称为 `hardwarebase-blog`。
+3. 确认分支为 `main`。
+4. 等待上传完成。
+
+如果已经检测到远程仓库，则点击：
+
+```text
+Push origin
 ```
 
-需要修改远程地址时：
+上传完成后，打开下面地址确认文件已经出现：
 
-```bash
-git remote set-url origin https://github.com/你的用户名/hardwarebase-blog.git
+https://github.com/lzpqr/hardwarebase-blog
+
+看到 `README.md`、`source`、`package.json` 等文件，就表示发布成功。
+
+## 第四步：打开 Cloudflare Pages
+
+登录：
+
+https://dash.cloudflare.com/
+
+然后依次操作：
+
+1. 进入 `Workers & Pages`。
+2. 点击 `Create application`。
+3. 选择 `Pages`。
+4. 点击 `Connect to Git`。
+5. 授权 Cloudflare 访问 GitHub。
+6. 选择仓库：
+
+```text
+lzpqr/hardwarebase-blog
 ```
 
-如果使用 GitHub Desktop：
+7. 点击 `Begin setup`。
 
-1. 打开 GitHub Desktop。
-2. 选择 Add Existing Repository。
-3. 选择当前项目目录。
-4. 点击 Publish repository。
-5. 选择仓库名称和是否公开。
-6. 发布后确认 `main` 分支已经推送。
+## 第五步：填写构建配置
 
-推送前确认没有提交密钥、Token 或私人文件。
+按照下面填写，不需要修改其他高级选项：
 
-## 四、连接 Cloudflare Pages
-
-1. 登录 Cloudflare。
-2. 进入 Workers & Pages。
-3. 点击 Create Application。
-4. 选择 Pages。
-5. 选择 Connect to Git。
-6. 授权 Cloudflare 访问 GitHub。
-7. 选择 `hardwarebase-blog` 仓库。
-8. 开始配置构建。
-
-填写以下参数：
-
-| 配置项 | 值 |
+| 配置项 | 填写内容 |
 | --- | --- |
 | Project name | `hardwarebase-blog` |
 | Production branch | `main` |
 | Build command | `npm run build` |
 | Build output directory | `public` |
-| Framework preset | Hexo 或 None |
+| Framework preset | `Hexo` 或 `None` |
 
-添加环境变量：
+在环境变量中添加：
 
 ```text
 NODE_VERSION=22.14.0
 ```
 
-项目中的 `wrangler.toml` 已经把输出目录设置为 `public`，但仍建议在 Cloudflare 界面再次确认。
+然后点击：
 
-## 五、首次部署
+```text
+Save and Deploy
+```
 
-保存并开始部署。等待构建完成后，Cloudflare 会提供一个类似下面的地址：
+## 第六步：等待部署完成
+
+Cloudflare 会自动下载依赖、构建博客并发布网站。
+
+首次构建通常需要几分钟。部署成功后，会出现一个类似下面的网址：
 
 ```text
 https://hardwarebase-blog.pages.dev
 ```
 
-打开首页、文章页、分类页、标签页和关于页，确认：
+打开这个网址，检查：
 
-- 页面可以正常打开
-- 图片和图标能够显示
-- 浅色和深色模式可以切换
-- 搜索可以打开
-- RSS 和 Sitemap 可以访问
+- 首页能否正常打开
+- 文章能否正常阅读
+- 分类、标签和关于页面是否正常
+- 手机端是否正常
+- 浅色和深色模式是否正常
+- 搜索是否可以打开
 
-## 六、部署后修改正式网址
+## 第七步：把正式网址告诉我
 
-把 `_config.yml` 中的：
+把 Cloudflare 提供的 `*.pages.dev` 地址发给我。
 
-```yaml
-url: https://example.com
+我会继续：
+
+1. 更新 `_config.yml` 中的正式网址。
+2. 重新执行构建检查。
+3. 提交修改。
+4. 告诉你在 GitHub Desktop 中如何推送最后的更新。
+5. 再检查 Cloudflare 是否完成部署。
+
+## 如果遇到问题
+
+### GitHub Desktop 找不到项目
+
+重新选择这个目录：
+
+```text
+H:\ai\codex\web
 ```
 
-改成 Cloudflare 地址或自定义域名，例如：
+### GitHub Desktop 提示登录
 
-```yaml
-url: https://hardwarebase-blog.pages.dev
+使用 GitHub 账号 `lzpqr` 登录，并在浏览器中完成授权。
+
+### Cloudflare 看不到仓库
+
+回到 GitHub 授权页面，允许 Cloudflare 访问你的 GitHub 仓库。
+
+### Cloudflare 构建失败
+
+复制 Cloudflare 构建日志中的错误信息发给我。不要自行修改构建命令，当前正确配置是：
+
+```text
+命令：npm run build
+输出目录：public
+Node.js：22.14.0
 ```
 
-然后提交并推送：
+## 安全提醒
 
-```bash
-git add _config.yml
-git commit -m "config: 更新正式网址"
-git push
-```
+不要把以下内容发给任何人：
 
-Cloudflare Pages 会自动重新构建。
-
-## 七、绑定自定义域名
-
-1. 在 Cloudflare Pages 项目中打开 Custom domains。
-2. 选择 Add custom domain。
-3. 输入已经购买的域名，例如 `blog.example.com`。
-4. 按提示配置 DNS。
-5. 等待 HTTPS 证书生效。
-6. 再次修改 `_config.yml` 中的 `url`。
-7. 重新提交并部署。
-
-## 八、以后发布文章
-
-```bash
-npm run check
-git add source/_posts
-git add source/img
-git commit -m "post: 新增文章"
-git push
-```
-
-推送后 Cloudflare Pages 会自动构建和发布。
-
-## 九、不要提交的内容
-
+- GitHub 密码
+- GitHub 验证码
 - GitHub Token
+- Cloudflare 密码
 - Cloudflare API Token
-- Waline 服务端密钥
-- 数据库密码
-- `.env` 和 `.env.*`
-- 个人隐私数据
-- 私密文章和图片
 
-## 十、如果部署失败
-
-先检查：
-
-1. Build command 是否为 `npm run build`。
-2. Build output directory 是否为 `public`。
-3. Node.js 版本是否为 `22.14.0`。
-4. 本地 `npm run check` 是否通过。
-5. GitHub Actions 的 Build check 是否通过。
-6. Cloudflare 构建日志中是否出现依赖安装失败。
-
-如果 Cloudflare 无法访问依赖源，可以先在本地的 `package-lock.json` 中确认依赖来源，再决定是否更换 npm 镜像或改用 Vercel 作为备选平台。
+只需要把 Cloudflare 最终生成的 `*.pages.dev` 网站地址发给我。
