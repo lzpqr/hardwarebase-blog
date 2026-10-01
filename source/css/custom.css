@@ -1,0 +1,139 @@
+/* 硬件Base：中文阅读优先的轻量补充样式 */
+
+:root {
+  --hb-blue: #6f8fba;
+  --hb-blue-strong: #5478a9;
+  --hb-border: rgba(111, 143, 186, 0.16);
+  --hb-surface: rgba(111, 143, 186, 0.055);
+}
+
+::selection {
+  background: rgba(111, 143, 186, 0.22);
+}
+
+body {
+  background-image: linear-gradient(180deg, rgba(111, 143, 186, 0.035), transparent 320px);
+}
+
+#article-container {
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 0.015em;
+  overflow-wrap: anywhere;
+}
+
+#article-container p {
+  margin: 0 0 1.15em;
+}
+
+#article-container h1,
+#article-container h2,
+#article-container h3,
+#article-container h4 {
+  letter-spacing: 0.02em;
+  scroll-margin-top: 88px;
+}
+
+#article-container h2 {
+  margin-top: 2em;
+  margin-bottom: 0.8em;
+}
+
+#article-container h3 {
+  margin-top: 1.65em;
+  margin-bottom: 0.7em;
+}
+
+#article-container a {
+  text-decoration: underline;
+  text-decoration-color: rgba(84, 120, 169, 0.36);
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 0.08em;
+}
+
+#article-container a:hover {
+  text-decoration-color: currentColor;
+}
+
+#article-container blockquote {
+  border-radius: 0 10px 10px 0;
+  padding: 0.85em 1em;
+}
+
+#article-container code:not([class*='language-']) {
+  border-radius: 5px;
+  padding: 0.12em 0.36em;
+}
+
+#article-container pre,
+#article-container .highlight {
+  border-radius: 12px;
+}
+
+#article-container img {
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(31, 45, 61, 0.08);
+}
+
+#article-container ul,
+#article-container ol {
+  padding-left: 1.55em;
+}
+
+#article-container li + li {
+  margin-top: 0.35em;
+}
+
+#article-container table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#article-container hr {
+  margin: 2.2em auto;
+  opacity: 0.72;
+}
+
+#aside-content .card-widget,
+.recent-post-item,
+#pagination .page-number,
+#pagination .extend {
+  border-radius: 12px;
+}
+
+#aside-content .card-widget {
+  border: 1px solid var(--hb-border);
+}
+
+.recent-post-item {
+  border: 1px solid var(--hb-border);
+}
+
+#footer {
+  border-top: 1px solid var(--hb-border);
+}
+
+@media (max-width: 768px) {
+  #article-container {
+    font-size: 15.5px;
+    line-height: 1.85;
+    letter-spacing: 0.01em;
+  }
+
+  #article-container h2 {
+    margin-top: 1.75em;
+  }
+}
+
+[data-theme='dark'] {
+  --hb-border: rgba(143, 168, 200, 0.16);
+  --hb-surface: rgba(143, 168, 200, 0.07);
+}
+
+[data-theme='dark'] #article-container {
+  color: #d8dee9;
+}
+
+[data-theme='dark'] #article-container img {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.24);
+}

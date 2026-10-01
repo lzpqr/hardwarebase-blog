@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Hexo generated files
+public/
+.deploy_git/
+.hexo/
+db.json
+
+# Local environment and logs
+.env
+.env.*
+*.log
+
+# Editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local publishing helpers
+.vercel/
+.wrangler/
