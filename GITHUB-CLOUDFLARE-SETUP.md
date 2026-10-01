@@ -67,7 +67,38 @@ https://github.com/lzpqr/hardwarebase-blog
 
 看到 `README.md`、`source`、`package.json` 等文件，就表示发布成功。
 
-## 第四步：修改当前 Cloudflare 项目
+## 第四步：先确认 GitHub 已经收到新配置
+
+打开下面的 GitHub 文件页面：
+
+https://github.com/lzpqr/hardwarebase-blog/blob/main/wrangler.toml
+
+文件内容必须包含：
+
+```toml
+[assets]
+directory = "./public"
+not_found_handling = "404-page"
+```
+
+如果页面仍然显示：
+
+```toml
+pages_build_output_dir = "public"
+```
+
+说明 GitHub Desktop 还没有把本地修改推送成功。此时 Cloudflare 重试多少次都会继续失败。
+
+回到 GitHub Desktop：
+
+1. 选择本地仓库 `H:\ai\codex\web`。
+2. 确认 Changes 中包含 `wrangler.toml`。
+3. Summary 填写 `fix: use Workers static assets and enforce LF`。
+4. 点击 `Commit to main`。
+5. 点击 `Push origin`。
+6. 等待推送完成后，刷新上面的 GitHub 文件页面，确认配置已经变成 `[assets]`。
+
+## 第五步：修改当前 Cloudflare 项目
 
 当前 Cloudflare 统一入口创建的是 Workers 构建环境。项目已经配置为使用 Workers 静态资源部署，不需要改用 Pages 命令。
 
@@ -111,7 +142,7 @@ npx wrangler pages deploy public --project-name=hardwarebase-blog
 Retry deployment
 ```
 
-## 第五步：等待部署完成
+## 第六步：等待部署完成
 
 Cloudflare 会自动下载依赖、构建博客并发布网站。
 
@@ -130,7 +161,7 @@ https://hardwarebase-blog.<你的-workers-子域>.workers.dev
 - 浅色和深色模式是否正常
 - 搜索是否可以打开
 
-## 第六步：把正式网址告诉我
+## 第七步：把正式网址告诉我
 
 把 Cloudflare 生成的 `*.workers.dev` 地址发给我。
 
