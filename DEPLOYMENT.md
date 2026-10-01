@@ -2,6 +2,8 @@
 
 当前项目生成的是纯静态网站，部署时只需要构建命令和静态输出目录，不需要服务器或数据库。
 
+GitHub 仓库创建、Cloudflare Pages 连接和自定义域名的逐步操作，请优先查看 GITHUB-CLOUDFLARE-SETUP.md。
+
 - 构建命令：`npm run build`
 - 输出目录：`public`
 - 推荐 Node.js：`22.14.0`

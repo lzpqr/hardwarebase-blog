@@ -69,8 +69,13 @@ source/css/custom.css       中文阅读和视觉补充样式
 source/img/                 头像、图标和图片占位
 source/vendor/fontawesome/  本地图标字体
 DEPLOYMENT.md               部署说明
+GITHUB-CLOUDFLARE-SETUP.md  GitHub 与 Cloudflare Pages 操作清单
 CONTENT-GUIDE.md            写作与内容维护说明
 tools/verify-build.mjs      构建结果与本地链接检查
+wrangler.toml               Cloudflare Pages 项目配置
+.node-version               Cloudflare 使用的 Node.js 版本
+.github/workflows/           GitHub 构建检查
+source/_headers              Cloudflare Pages 安全响应头
 public/                     构建后的静态网站，不提交到 Git
 ```
 
@@ -101,4 +106,4 @@ public/                     构建后的静态网站，不提交到 Git
 - 邮箱是公开联系方式，发布前请确认是否愿意公开。
 - 网站尚未绑定域名时，`https://example.com` 只是占位符。
 
-更详细的操作请查看 `DEPLOYMENT.md` 和 `CONTENT-GUIDE.md`。
+更详细的操作请查看 `DEPLOYMENT.md`、`GITHUB-CLOUDFLARE-SETUP.md` 和 `CONTENT-GUIDE.md`。
