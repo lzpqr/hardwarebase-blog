@@ -2,27 +2,23 @@
 
 当前项目生成的是纯静态网站，部署时只需要构建命令和静态输出目录，不需要服务器或数据库。
 
-GitHub 仓库创建、Cloudflare Pages 连接和自定义域名的逐步操作，请优先查看 GITHUB-CLOUDFLARE-SETUP.md。
+当前已成功部署到 Cloudflare Workers 静态资源。GitHub 与 Cloudflare 的逐步操作请优先查看 GITHUB-CLOUDFLARE-SETUP.md。
 
 - 构建命令：`npm run build`
 - 输出目录：`public`
 - 推荐 Node.js：`22.14.0`
-- 首选平台：Cloudflare Pages
+- 当前平台：Cloudflare Workers 静态资源
 - 备选平台：Vercel
 
 ## 一、部署前检查
 
-1. 确认域名。当前 `_config.yml` 中的网址是占位符：
+1. 当前正式网址已经设置为：
 
 ```yaml
-url: https://example.com
+url: https://hardwarebase-blog.zeeplele.workers.dev
 ```
 
-绑定真实域名后，请改成实际网址，例如：
-
-```yaml
-url: https://blog.example.com
-```
+以后绑定自定义域名时，再把它替换为新的正式网址。
 
 修改后重新执行：
 

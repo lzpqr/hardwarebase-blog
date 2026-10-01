@@ -91,7 +91,7 @@ public/                     构建后的静态网站，不提交到 Git
 
 ## 发布前需要修改
 
-1. 在 `_config.yml` 中把 `url: https://example.com` 改成真实域名。
+1. 当前正式网址已设置为 `https://hardwarebase-blog.zeeplele.workers.dev`；绑定自定义域名后再替换。
 2. 在 `_config.butterfly.yml` 中替换头像或保留当前电路板风格头像。
 3. 在 `source/about/index.md` 中补充个人介绍。
 4. 在 `_config.butterfly.yml` 中配置 Waline 后再启用评论。
@@ -104,6 +104,6 @@ public/                     构建后的静态网站，不提交到 Git
 - 不要把 GitHub Token、Cloudflare Token、邮箱密码或其他密钥写入仓库。
 - `.env`、`.env.*`、构建产物和依赖目录已经加入 `.gitignore`。
 - 邮箱是公开联系方式，发布前请确认是否愿意公开。
-- 网站尚未绑定域名时，`https://example.com` 只是占位符。
+- 当前正式网址为 `https://hardwarebase-blog.zeeplele.workers.dev`，尚未绑定自定义域名。
 
 更详细的操作请查看 `DEPLOYMENT.md`、`GITHUB-CLOUDFLARE-SETUP.md` 和 `CONTENT-GUIDE.md`。

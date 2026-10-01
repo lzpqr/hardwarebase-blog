@@ -142,14 +142,14 @@ npx wrangler pages deploy public --project-name=hardwarebase-blog
 Retry deployment
 ```
 
-## 第六步：等待部署完成
+## 第六步：部署已经成功
 
 Cloudflare 会自动下载依赖、构建博客并发布网站。
 
-首次构建通常需要几分钟。部署成功后，会出现一个类似下面的网址：
+Cloudflare 已经完成首次部署，当前正式网址是：
 
 ```text
-https://hardwarebase-blog.<你的-workers-子域>.workers.dev
+https://hardwarebase-blog.zeeplele.workers.dev
 ```
 
 打开网址并检查：
@@ -161,16 +161,25 @@ https://hardwarebase-blog.<你的-workers-子域>.workers.dev
 - 浅色和深色模式是否正常
 - 搜索是否可以打开
 
-## 第七步：把正式网址告诉我
+## 第七步：提交正式网址配置
 
-把 Cloudflare 生成的 `*.workers.dev` 地址发给我。
+本地 `_config.yml` 已经更新为：
 
-我会继续：
+```yaml
+url: https://hardwarebase-blog.zeeplele.workers.dev
+```
 
-1. 更新 `_config.yml` 中的正式网址。
-2. 重新执行构建检查。
-3. 告诉你需要在 GitHub Desktop 中提交和推送的文件。
-4. 再检查 Cloudflare 是否完成部署。
+现在打开 GitHub Desktop：
+
+1. 检查 Changes 中是否包含 `_config.yml`、`wrangler.toml`、`.gitattributes` 和部署文档。
+2. Summary 填写 `config: set production URL and Cloudflare deployment`。
+3. 点击 `Commit to main`。
+4. 点击 `Push origin`。
+5. 等待 Cloudflare 自动重新部署。
+
+部署完成后打开：
+
+https://hardwarebase-blog.zeeplele.workers.dev
 ## 如果遇到问题
 
 ### GitHub Desktop 找不到项目
@@ -228,4 +237,4 @@ npx wrangler deploy
 - Cloudflare 密码
 - Cloudflare API Token
 
-只需要把 Cloudflare 最终生成的 `*.pages.dev` 网站地址发给我。
+当前正式网址：https://hardwarebase-blog.zeeplele.workers.dev

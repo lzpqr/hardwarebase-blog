@@ -9,8 +9,8 @@ language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
-# 购买域名后，将 url 修改为真实地址，例如：https://blog.example.com
-url: https://example.com
+# 当前正式网址。绑定自定义域名后，将这里替换为新的地址。
+url: https://hardwarebase-blog.zeeplele.workers.dev
 permalink: posts/:title/
 permalink_defaults:
 pretty_urls:
