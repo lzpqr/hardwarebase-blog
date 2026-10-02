@@ -37,7 +37,7 @@ cover:
 | --- | --- |
 | 1 | 硬件开发流程 |
 | 2 | [需求分析](/posts/hardware-development-requirements-analysis/) |
-| 3 | 方案设计 |
+| 3 | [方案设计](/posts/hardware-development-solution-design/) |
 | 4 | 原理图设计 |
 | 5 | PCB 设计 |
 | 6 | PCB 制板与贴片 |
