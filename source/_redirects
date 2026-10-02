@@ -1,3 +1,6 @@
+# 百度验证文件必须直接返回 200，不能被 HTML 路由跳转。
+/baidu_verify_codeva-oV7fgdobPq.html /baidu_verify_codeva-oV7fgdobPq.html 200
+
 # 将已删除的示例文章永久跳转到归档页。
 /posts/markdown-formatting-test/ /archives/ 301
 /posts/markdown-formatting-test /archives/ 301
