@@ -79,6 +79,7 @@ https://github.com/lzpqr/hardwarebase-blog/blob/main/wrangler.toml
 [assets]
 directory = "./public"
 not_found_handling = "404-page"
+html_handling = "none"
 ```
 
 如果页面仍然显示：
@@ -124,6 +125,7 @@ Settings → Builds & deployments
 [assets]
 directory = "./public"
 not_found_handling = "404-page"
+html_handling = "none"
 ```
 
 所以 `npx wrangler deploy` 会把 `public` 目录作为静态网站部署，不需要额外的 Worker 代码。
@@ -206,6 +208,7 @@ H:\ai\codex\web
 [assets]
 directory = "./public"
 not_found_handling = "404-page"
+html_handling = "none"
 ```
 
 确认 Deploy command 是：
