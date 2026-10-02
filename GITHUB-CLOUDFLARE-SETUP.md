@@ -149,7 +149,7 @@ Cloudflare 会自动下载依赖、构建博客并发布网站。
 Cloudflare 已经完成首次部署，当前正式网址是：
 
 ```text
-https://hardwarebase.top
+https://www.hardwarebase.top
 ```
 
 打开网址并检查：
@@ -166,7 +166,7 @@ https://hardwarebase.top
 本地 `_config.yml` 已经更新为：
 
 ```yaml
-url: https://hardwarebase.top
+url: https://www.hardwarebase.top
 ```
 
 现在打开 GitHub Desktop：
@@ -179,7 +179,7 @@ url: https://hardwarebase.top
 
 部署完成后打开：
 
-https://hardwarebase.top
+https://www.hardwarebase.top
 ## 如果遇到问题
 
 ### GitHub Desktop 找不到项目
@@ -227,6 +227,24 @@ npx wrangler deploy
 ### 构建仍然失败
 
 复制 Cloudflare 日志最后 30 行发给我，不要发送密码或 API Token。
+## 绑定 www.hardwarebase.top
+
+1. 进入 `Workers & Pages`。
+2. 选择 `hardwarebase-blog`。
+3. 进入 `Settings` → `Domains & Routes`。
+4. 点击 `Add` → `Custom Domain`。
+5. 输入 `www.hardwarebase.top`。
+6. 等待状态变成 `Active`。
+7. 打开 https://www.hardwarebase.top 检查。
+
+如果希望根域名 `hardwarebase.top` 自动跳转到 www，可以在 Cloudflare 的 `Rules` → `Redirect Rules` 中创建一条 301 跳转规则：
+
+```text
+访问：hardwarebase.top
+跳转到：https://www.hardwarebase.top
+状态码：301
+```
+
 ## 安全提醒
 
 不要把以下内容发给任何人：
@@ -237,4 +255,4 @@ npx wrangler deploy
 - Cloudflare 密码
 - Cloudflare API Token
 
-当前正式网址：https://hardwarebase.top
+当前正式网址：https://www.hardwarebase.top
