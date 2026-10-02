@@ -17,6 +17,7 @@ const requiredFiles = [
   'sitemap.xml',
   'search.xml',
   'robots.txt',
+  'baidu_verify_codeva-oV7fgdobPq.html',
   '_headers',
   '_redirects',
   'vendor/fontawesome/css/all.min.css',
