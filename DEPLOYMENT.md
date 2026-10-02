@@ -15,7 +15,7 @@
 1. 当前正式网址已经设置为：
 
 ```yaml
-url: https://hardwarebase-blog.zeeplele.workers.dev
+url: https://hardwarebase.top
 ```
 
 以后绑定自定义域名时，再把它替换为新的正式网址。

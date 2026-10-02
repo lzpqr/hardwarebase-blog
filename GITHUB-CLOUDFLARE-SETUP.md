@@ -149,7 +149,7 @@ Cloudflare 会自动下载依赖、构建博客并发布网站。
 Cloudflare 已经完成首次部署，当前正式网址是：
 
 ```text
-https://hardwarebase-blog.zeeplele.workers.dev
+https://hardwarebase.top
 ```
 
 打开网址并检查：
@@ -166,7 +166,7 @@ https://hardwarebase-blog.zeeplele.workers.dev
 本地 `_config.yml` 已经更新为：
 
 ```yaml
-url: https://hardwarebase-blog.zeeplele.workers.dev
+url: https://hardwarebase.top
 ```
 
 现在打开 GitHub Desktop：
@@ -179,7 +179,7 @@ url: https://hardwarebase-blog.zeeplele.workers.dev
 
 部署完成后打开：
 
-https://hardwarebase-blog.zeeplele.workers.dev
+https://hardwarebase.top
 ## 如果遇到问题
 
 ### GitHub Desktop 找不到项目
@@ -237,4 +237,4 @@ npx wrangler deploy
 - Cloudflare 密码
 - Cloudflare API Token
 
-当前正式网址：https://hardwarebase-blog.zeeplele.workers.dev
+当前正式网址：https://hardwarebase.top
