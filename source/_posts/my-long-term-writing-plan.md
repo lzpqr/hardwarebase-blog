@@ -41,7 +41,7 @@ cover:
 | 4 | [原理图设计](/posts/hardware-development-schematic-design/) |
 | 5 | [PCB 设计](/posts/hardware-development-pcb-design/) |
 | 6 | [PCB 制板与贴片](/posts/hardware-development-pcb-fabrication-assembly/) |
-| 7 | 硬件调试与验证 |
+| 7 | [硬件调试与验证](/posts/hardware-development-debugging-validation/) |
 | 8 | 设计迭代 |
 | 9 | 量产导入 |
 
