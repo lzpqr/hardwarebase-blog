@@ -26,6 +26,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - baidu_verify_codeva-oV7fgdobPq.html
 
 # Writing
 new_post_name: :year-:month-:day-:title.md
