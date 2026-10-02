@@ -43,7 +43,7 @@ cover:
 | 6 | [PCB 制板与贴片](/posts/hardware-development-pcb-fabrication-assembly/) |
 | 7 | [硬件调试与验证](/posts/hardware-development-debugging-validation/) |
 | 8 | [设计迭代](/posts/hardware-development-design-iteration/) |
-| 9 | 量产导入 |
+| 9 | [量产导入](/posts/hardware-development-production-introduction/) |
 
 ## 先建立整体认识
 
