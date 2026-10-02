@@ -17,6 +17,7 @@ const requiredFiles = [
   'sitemap.xml',
   'search.xml',
   '_headers',
+  '_redirects',
   'vendor/fontawesome/css/all.min.css',
   'vendor/fontawesome/webfonts/fa-solid-900.woff2'
 ];

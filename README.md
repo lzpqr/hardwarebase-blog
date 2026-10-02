@@ -75,7 +75,8 @@ tools/verify-build.mjs      构建结果与本地链接检查
 wrangler.toml               Cloudflare Pages 项目配置
 .node-version               Cloudflare 使用的 Node.js 版本
 .github/workflows/           GitHub 构建检查
-source/_headers              Cloudflare Pages 安全响应头
+source/_headers              Cloudflare 安全响应头
+source/_redirects            Cloudflare 永久跳转规则
 public/                     构建后的静态网站，不提交到 Git
 ```
 
