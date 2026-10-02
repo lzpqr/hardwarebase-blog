@@ -70,7 +70,7 @@ source/img/                 头像、图标和图片占位
 source/vendor/fontawesome/  本地图标字体
 DEPLOYMENT.md               部署说明
 GITHUB-CLOUDFLARE-SETUP.md  GitHub 与 Cloudflare Pages 操作清单
-CONTENT-GUIDE.md            写作与内容维护说明
+CONTENT-GUIDE.md            写作与内容维护说明`n网站维护指南.md             网站长期更新与维护说明`ntemplates/文章模板.docx         Word 格式文章写作模板`ntemplates/文章模板.md           Markdown 在线发布模板
 tools/verify-build.mjs      构建结果与本地链接检查
 wrangler.toml               Cloudflare Pages 项目配置
 .node-version               Cloudflare 使用的 Node.js 版本
@@ -106,4 +106,4 @@ public/                     构建后的静态网站，不提交到 Git
 - 邮箱是公开联系方式，发布前请确认是否愿意公开。
 - 当前正式网址为 `https://hardwarebase.top`。
 
-更详细的操作请查看 `DEPLOYMENT.md`、`GITHUB-CLOUDFLARE-SETUP.md` 和 `CONTENT-GUIDE.md`。
+更详细的操作请查看 `DEPLOYMENT.md`、`GITHUB-CLOUDFLARE-SETUP.md`、`CONTENT-GUIDE.md` 和 `网站维护指南.md`。
