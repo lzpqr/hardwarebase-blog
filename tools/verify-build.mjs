@@ -18,6 +18,7 @@ const requiredFiles = [
   'search.xml',
   'robots.txt',
   'baidu_verify_codeva-oV7fgdobPq.html',
+  'BingSiteAuth.xml',
   '_headers',
   '_redirects',
   'vendor/fontawesome/css/all.min.css',
