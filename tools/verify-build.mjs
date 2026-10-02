@@ -16,6 +16,7 @@ const requiredFiles = [
   'atom.xml',
   'sitemap.xml',
   'search.xml',
+  'robots.txt',
   '_headers',
   '_redirects',
   'vendor/fontawesome/css/all.min.css',

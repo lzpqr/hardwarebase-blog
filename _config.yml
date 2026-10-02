@@ -10,7 +10,7 @@ timezone: Asia/Shanghai
 
 # URL
 # 当前正式网址。绑定自定义域名后，将这里替换为新的地址。
-url: https://www.hardwarebase.top
+url: https://hardwarebase.top
 permalink: posts/:title/
 permalink_defaults:
 pretty_urls:
