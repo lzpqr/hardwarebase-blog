@@ -62,7 +62,7 @@ _config.butterfly.yml       Butterfly 主题覆盖配置
 package.json                项目依赖和命令
 package-lock.json           锁定依赖版本
 source/_posts/              博客文章
-source/about/               关于页面
+source/about/               关于页面`nsource/collections/           系列文章合集
 source/categories/          分类页面
 source/tags/                标签页面
 source/css/custom.css       中文阅读和视觉补充样式
@@ -89,7 +89,7 @@ public/                     构建后的静态网站，不提交到 Git
 3. 硬件设计开发流程：从需求分析到量产导入
 4. 硬件设计开发流程：需求分析篇`n5. 硬件设计开发流程：方案设计篇`n6. 硬件设计开发流程：原理图设计篇`n7. 硬件设计开发流程：PCB设计篇`n8. 硬件设计开发流程：PCB制板与贴片篇`n9. 硬件设计开发流程：调试与验证篇`n10. 硬件设计开发流程：设计迭代篇`n11. 硬件设计开发流程：量产导入篇
 
-这些文章可以继续修改或按需要调整。
+这些文章可以继续修改或按需要调整。`n`n系列文章已经整理到 [硬件开发流程合集](/collections/hardware-development/)，可以从导航菜单的“合集”入口访问。
 
 ## 发布前需要修改
 
