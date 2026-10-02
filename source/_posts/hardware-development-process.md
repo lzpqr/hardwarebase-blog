@@ -38,6 +38,8 @@ cover:
 
 需求不清晰，后续的方案、器件、PCB 结构和验证标准都会失去依据。
 
+更详细的步骤、输出和风险检查，可以继续阅读 [硬件设计开发流程：需求分析篇](/posts/hardware-development-requirements-analysis/)。
+
 ### 关键动作
 
 - 明确需求，输出需求规格说明书；

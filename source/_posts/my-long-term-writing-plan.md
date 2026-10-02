@@ -36,7 +36,7 @@ cover:
 | 序号 | 文章主题 |
 | --- | --- |
 | 1 | 硬件开发流程 |
-| 2 | 需求分析 |
+| 2 | [需求分析](/posts/hardware-development-requirements-analysis/) |
 | 3 | 方案设计 |
 | 4 | 原理图设计 |
 | 5 | PCB 设计 |
