@@ -39,7 +39,7 @@ cover:
 | 2 | [需求分析](/posts/hardware-development-requirements-analysis/) |
 | 3 | [方案设计](/posts/hardware-development-solution-design/) |
 | 4 | [原理图设计](/posts/hardware-development-schematic-design/) |
-| 5 | PCB 设计 |
+| 5 | [PCB 设计](/posts/hardware-development-pcb-design/) |
 | 6 | PCB 制板与贴片 |
 | 7 | 硬件调试与验证 |
 | 8 | 设计迭代 |
