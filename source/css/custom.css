@@ -125,6 +125,172 @@ body {
   }
 }
 
+/* --- 首页 Hero（注入块渲染，见 _config.butterfly.yml inject.bottom） --- */
+#body-wrap.type-page.type-404 .hb-hero { display: none; }
+
+.hb-hero {
+  margin: 0 0 26px;
+  padding: 40px 28px 34px;
+  border: 1px solid var(--hb-border);
+  border-radius: 14px;
+  background:
+    radial-gradient(120% 150% at 0% 0%, rgba(111, 143, 186, 0.12), transparent 55%),
+    var(--hb-surface);
+}
+
+.hb-hero-inner {
+  max-width: 46em;
+  margin: 0 auto;
+}
+
+.hb-hero-eyebrow {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: var(--hb-blue-strong);
+  text-transform: uppercase;
+}
+
+.hb-hero-title {
+  margin: 0 0 12px;
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--text-font-color, #2c3e50);
+}
+
+.hb-hero-sub {
+  margin: 0 0 20px;
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: var(--hb-text-2, #5c6675);
+}
+
+.hb-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hb-hero-btn {
+  display: inline-block;
+  padding: 9px 20px;
+  border: 1px solid var(--hb-blue-strong);
+  border-radius: 9px;
+  font-size: 14px;
+  color: var(--hb-blue-strong);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.hb-hero-btn:hover {
+  background: rgba(111, 143, 186, 0.14);
+  transform: translateY(-1px);
+}
+
+.hb-hero-btn--primary {
+  background: var(--hb-blue-strong);
+  color: #fff;
+}
+
+.hb-hero-btn--primary:hover {
+  background: var(--hb-blue);
+  color: #fff;
+}
+
+.hb-hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.hb-hero-chips a {
+  padding: 5px 13px;
+  border: 1px solid var(--hb-border);
+  border-radius: 999px;
+  font-size: 12.5px;
+  color: var(--hb-text-2, #5c6675);
+  background: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.hb-hero-chips a:hover {
+  border-color: var(--hb-blue-strong);
+  color: var(--hb-blue-strong);
+}
+
+.hb-hero-chips a:last-child {
+  border-color: var(--hb-blue-strong);
+  color: var(--hb-blue-strong);
+}
+
+/* 首页系列导航卡：弱化标题（标题已出现在 Hero 与侧栏），正文作为导语 */
+.hb-index-item {
+  border-left: 3px solid var(--hb-blue);
+}
+
+.hb-index-item--lead {
+  border-left-width: 4px;
+  background: var(--hb-surface);
+}
+
+/* --- 首页列表卡：标题瘦身（正文承担导读） --- */
+#content-inner .recent-post-item .article-title {
+  font-size: 17px;
+}
+
+/* --- 页脚改浅色：去掉深色块 --- */
+#footer {
+  background: transparent !important;
+}
+
+#footer::before,
+#footer::after {
+  display: none !important;
+}
+
+/* 移动端：Hero 收紧、元信息单行、侧栏自然降序 */
+@media (max-width: 768px) {
+  .hb-hero {
+    margin: 0 0 18px;
+    padding: 26px 18px 24px;
+  }
+
+  .hb-hero-title {
+    font-size: 21px;
+  }
+
+  .hb-hero-sub {
+    font-size: 13.5px;
+  }
+
+  .hb-hero-chips {
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .hb-hero-chips a {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+
+  #content-inner .article-meta-wrap {
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  #content-inner .recent-post-item .content {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
 [data-theme='dark'] {
   --hb-border: rgba(143, 168, 200, 0.16);
   --hb-surface: rgba(143, 168, 200, 0.07);
@@ -136,4 +302,34 @@ body {
 
 [data-theme='dark'] #article-container img {
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.24);
+}
+
+[data-theme='dark'] .hb-hero {
+  background:
+    radial-gradient(120% 150% at 0% 0%, rgba(143, 168, 200, 0.12), transparent 55%),
+    rgba(143, 168, 200, 0.05);
+}
+
+[data-theme='dark'] .hb-hero-title {
+  color: #e6ebf2;
+}
+
+[data-theme='dark'] .hb-hero-sub,
+[data-theme='dark'] .hb-hero-chips a {
+  color: #aab6c8;
+}
+
+[data-theme='dark'] .hb-hero-chips a:hover,
+[data-theme='dark'] .hb-hero-chips a:last-child {
+  color: #9db8dc;
+}
+
+[data-theme='dark'] .hb-hero-btn {
+  color: #9db8dc;
+  border-color: #9db8dc;
+}
+
+[data-theme='dark'] .hb-hero-btn--primary {
+  background: #5d82b4;
+  color: #fff;
 }
