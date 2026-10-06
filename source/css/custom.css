@@ -228,6 +228,19 @@ body {
   color: var(--hb-blue-strong);
 }
 
+.hb-hero-chips-label {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--hb-blue-strong);
+  letter-spacing: 0.06em;
+}
+
+.hb-hero-chips + .hb-hero-chips {
+  margin-top: 10px;
+}
+
 /* 首页系列导航卡：弱化标题（标题已出现在 Hero 与侧栏），正文作为导语 */
 .hb-index-item {
   border-left: 3px solid var(--hb-blue);

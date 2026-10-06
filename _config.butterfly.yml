@@ -11,6 +11,7 @@ nav:
 menu:
   首页: / || fas fa-home
   选型系列: /collections/component-selection/ || fas fa-layer-group
+  流程系列: /collections/hardware-development/ || fas fa-list-check
   归档: /archives/ || fas fa-archive
   分类: /categories/ || fas fa-folder-open
   关于: /about/ || fas fa-user
@@ -234,7 +235,7 @@ inject:
           + '<div class="hb-hero-inner">'
           + '<p class="hb-hero-eyebrow">器件选型知识库</p>'
           + '<h1 class="hb-hero-title">系统化的硬件器件选型知识库</h1>'
-          + '<p class="hb-hero-sub">覆盖电阻、电容、电感、二极管、MOSFET、LDO/DC-DC、MCU、存储/DDR、看门狗、ADC/DAC 等 21 篇，从需求到验证、从样机到量产。</p>'
+          + '<p class="hb-hero-sub">器件选型知识库 · 硬件开发流程系列，从需求分析到量产导入，覆盖 21 篇器件选型 + 9 篇流程方法。</p>'
           + '<div class="hb-hero-actions">'
           + '<a class="hb-hero-btn hb-hero-btn--primary" href="/collections/component-selection/">浏览选型系列</a>'
           + '<a class="hb-hero-btn" href="/about/">关于本站</a>'
@@ -250,6 +251,16 @@ inject:
           + '<a href="/posts/component-selection-adc/">ADC</a>'
           + '<a href="/posts/component-selection-dac/">DAC</a>'
           + '<a href="/collections/component-selection/">全部 21 篇 →</a>'
+          + '</div>'
+          + '<div class="hb-hero-chips">'
+          + '<span class="hb-hero-chips-label">流程系列</span>'
+          + '<a href="/posts/hardware-development-process/">流程总览</a>'
+          + '<a href="/posts/hardware-development-requirements-analysis/">需求分析</a>'
+          + '<a href="/posts/hardware-development-schematic-design/">原理图</a>'
+          + '<a href="/posts/hardware-development-pcb-design/">PCB</a>'
+          + '<a href="/posts/hardware-development-debugging-validation/">调试验证</a>'
+          + '<a href="/posts/hardware-development-production-introduction/">量产导入</a>'
+          + '<a href="/collections/hardware-development/">全部 9 篇 →</a>'
           + '</div>'
           + '</div></div>';
         main.insertAdjacentHTML('afterbegin', html);
