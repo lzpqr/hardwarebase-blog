@@ -12,6 +12,7 @@ menu:
   首页: / || fas fa-home
   选型系列: /collections/component-selection/ || fas fa-layer-group
   流程系列: /collections/hardware-development/ || fas fa-list-check
+  接口协议: /collections/hardware-interface-protocol/ || fas fa-network-wired
   归档: /archives/ || fas fa-archive
   分类: /categories/ || fas fa-folder-open
   关于: /about/ || fas fa-user
@@ -241,7 +242,7 @@ inject:
           + '<div class="hb-hero-inner">'
           + '<p class="hb-hero-eyebrow">硬件基础知识库</p>'
           + '<h1 class="hb-hero-title">硬件基础知识库</h1>'
-          + '<p class="hb-hero-sub">硬件开发流程与器件选型方法：从需求分析到量产导入的 9 篇流程方法，覆盖 21 篇器件选型。</p>'
+          + '<p class="hb-hero-sub">从需求分析到量产导入的 9 篇开发流程方法，外加 20 篇常用器件选型参考。</p>'
           + '</div></div>';
         var catHtml = '<div class="hb-hero-cats" id="hb-cat-grid">'
           + '<span class="hb-cat-eyebrow">分类索引</span>'
@@ -258,12 +259,14 @@ inject:
           { key: 'hardware-development', name: '硬件开发流程', link: '/collections/hardware-development/',
             prefix: 'hardware-development-' },
           { key: 'component-selection', name: '硬件器件选型', link: '/collections/component-selection/',
-            prefix: 'component-selection-' }
+            prefix: 'component-selection-' },
+          { key: 'hardware-interface-protocol', name: '硬件接口协议', link: '/collections/hardware-interface-protocol/',
+            prefix: 'hardware-interface-protocol-' }
         ];
         // 完整索引清单：按合集分组，顺序为稳定的展示顺序（不依赖首页只渲染的 8 篇）
         var INDEX = {
           'hardware-development': [
-            { slug: 'hardware-development-process', title: '硬件产品开发流程' },
+            { slug: 'hardware-development-process', title: '流程总览' },
             { slug: 'hardware-development-requirements-analysis', title: '需求分析' },
             { slug: 'hardware-development-solution-design', title: '方案设计' },
             { slug: 'hardware-development-schematic-design', title: '原理图设计' },
@@ -294,6 +297,9 @@ inject:
             { slug: 'component-selection-watchdog', title: '看门狗' },
             { slug: 'component-selection-adc', title: 'ADC' },
             { slug: 'component-selection-dac', title: 'DAC' }
+          ],
+          'hardware-interface-protocol': [
+            { slug: 'hardware-interface-protocol-overview', title: '接口协议总览' }
           ]
         };
         var hostEl = document.getElementById('hb-cat-grid');
@@ -301,22 +307,13 @@ inject:
         var posts = host.querySelectorAll('.recent-post-item');
         COLS.forEach(function (col, ci) {
           var entries = INDEX[col.key] || [];
-          // 用首页上已有的文章卡片补真实标题，缺省用索引清单里的短标题
-          var titleBySlug = {};
-          for (var i = 0; i < posts.length; i++) {
-            var titleA = posts[i].querySelector('.article-title');
-            if (!titleA) continue;
-            var href = titleA.getAttribute('href') || '';
-            var m = href.match(/\/posts\/(.+?)\/?$/);
-            if (m) titleBySlug[m[1]] = titleA.textContent;
-          }
           var g = document.createElement('div');
           g.className = 'hb-cat-group';
           g.setAttribute('data-cat', col.key);
           var h = '<a class="hb-cat-name" href="' + col.link + '">' + col.name + '</a>';
           h += '<ul class="hb-cat-list">';
           entries.forEach(function (e) {
-            var label = titleBySlug[e.slug] || e.title;
+            var label = e.title;
             h += '<li><a href="/posts/' + e.slug + '/" title="' + label + '">' + label + '</a></li>';
           });
           h += '</ul>';
