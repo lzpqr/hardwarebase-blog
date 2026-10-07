@@ -259,7 +259,7 @@ body {
 
 .hb-cat-groups {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -296,13 +296,13 @@ body {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2px 12px;
+  gap: 2px 10px;
 }
 
 .hb-cat-list li a {
   display: block;
   padding: 3px 0;
-  font-size: 14px;
+  font-size: 13px;
   color: var(--hb-text-1, #3d4451);
   text-decoration: none;
   word-break: break-word;
@@ -322,6 +322,13 @@ body {
 
 .hb-cat-list li a:hover {
   color: var(--hb-blue-strong);
+}
+
+/* 1 行 3 列在较窄屏幕放不下，回退为单列堆叠 */
+@media (max-width: 1023px) {
+  .hb-cat-groups {
+    grid-template-columns: 1fr;
+  }
 }
 
 .hb-cat-more {
