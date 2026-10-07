@@ -253,51 +253,50 @@ inject:
         items.forEach(function (el) { el.classList.add('hb-index-item'); });
         if (items.length) items[0].classList.add('hb-index-item--lead');
 
-        // ---- 分类索引（每分类前 5 篇，仅标题）----
-        var CAT_LIMIT = 5;
-        var CAT_LINK = { '博客公告': '/categories/blog-post/', '硬件设计': '/categories/hardware-design/', '长期主义': '/categories/longtermism/' };
+        // ---- 分类索引：按两个合集分组（流程 / 选型），每合集前 5 篇，仅标题 ----
+        var COL_LIMIT = 5;
+        var COLS = [
+          { key: 'hardware-development', name: '硬件开发流程', link: '/collections/hardware-development/',
+            prefix: 'hardware-development-', total: 9 },
+          { key: 'component-selection', name: '硬件器件选型', link: '/collections/component-selection/',
+            prefix: 'component-selection-', total: 21 }
+        ];
         var hostEl = document.getElementById('hb-cat-grid');
         var grid = hostEl.querySelector('.hb-cat-groups');
-        var seen = 0;
         var posts = host.querySelectorAll('.recent-post-item');
-        // 分类链接挂在 .article-meta__categories 类上（而非在 span 里），
-        // 用 closest 向上找 .recent-post-item 再取 a 链接。
-        function catOf(item) {
-          var el = item.querySelector('.article-meta__categories');
-          return el || null;
-        }
-        var byCat = {};
-        for (var i = 0; i < posts.length && seen < 20; i++) {
-          var catEl = catOf(posts[i]);
-          if (!catEl) continue;
-          var name = catEl.textContent;
-          var url = catEl.getAttribute('href');
-          if (!byCat[name]) {
-            byCat[name] = { name: name, link: CAT_LINK[name] || url, items: [] };
+        COLS.forEach(function (col, ci) {
+          var items = [];
+          for (var i = 0; i < posts.length; i++) {
+            var titleA = posts[i].querySelector('.article-title');
+            if (!titleA) continue;
+            var href = titleA.getAttribute('href') || '';
+            // 根据 slug 前缀判断属于哪个合集
+            if (href.indexOf('/posts/' + col.prefix) === 0) {
+              items.push(titleA);
+            }
           }
-          byCat[name].items.push(posts[i].querySelector('.article-title'));
-          seen++;
-        }
-        var catNames = [];
-        for (var c in byCat) catNames.push(c);
-        catNames.forEach(function (n, ci) {
           var g = document.createElement('div');
-          g.className = 'hb-cat-group' + (ci === 0 ? '' : ' hb-cat-group--rest');
-          g.setAttribute('data-cat', n);
-          var c = byCat[n];
-          var h = '<a class="hb-cat-name" href="' + c.link + '">' + n + '</a>';
+          g.className = 'hb-cat-group';
+          g.setAttribute('data-cat', col.key);
+          var h = '<a class="hb-cat-name" href="' + col.link + '">' + col.name + '</a>';
           h += '<ul class="hb-cat-list">';
-          c.items.slice(0, CAT_LIMIT).forEach(function (a) {
-            if (!a) return;
+          items.slice(0, COL_LIMIT).forEach(function (a) {
             h += '<li><a href="' + a.getAttribute('href') + '" title="' + a.textContent + '">' + a.textContent + '</a></li>';
           });
-          if (c.items.length > CAT_LIMIT) {
-            h += '<li class="hb-cat-more"><a href="' + c.link + '">共 ' + c.items.length + ' 篇 →</a></li>';
+          var total = (typeof col.total === 'number' && col.total > 0) ? col.total : items.length;
+          if (total > COL_LIMIT) {
+            h += '<li class="hb-cat-more"><a href="' + col.link + '">共 ' + total + ' 篇 →</a></li>';
           }
           h += '</ul>';
           g.innerHTML = h;
           grid.appendChild(g);
         });
+
+        // 分类索引已承担索引职责，隐藏下方常规文章列表与分页
+        var itemsAll = host.querySelectorAll('.recent-post-item');
+        itemsAll.forEach(function (el) { el.style.display = 'none'; });
+        var pager = host.querySelector('#pagination');
+        if (pager) pager.style.display = 'none';
       });
       </script>
 

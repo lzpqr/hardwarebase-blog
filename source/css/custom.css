@@ -338,10 +338,6 @@ body {
   text-decoration: underline;
 }
 
-/* 博客公告只有 1 篇，不进入索引 */
-.hb-cat-group[data-cat="博客公告"] {
-  display: none;
-}
 
 @media (max-width: 768px) {
   .hb-cat-list {
