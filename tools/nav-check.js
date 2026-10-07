@@ -16,11 +16,13 @@ const { chromium } = require('playwright-core');
     page.on('console', m => { if (m.type() === 'error') errors.push('CONSOLE: ' + m.text()); });
     await page.goto(url, { waitUntil: 'networkidle' });
     await page.waitForTimeout(1200);
-    const info = await page.evaluate(() => {
+      const info = await page.evaluate(() => {
       const nav = document.querySelector('#nav');
       const cs = nav ? getComputedStyle(nav) : null;
       const overflow = document.body.scrollWidth > document.documentElement.clientWidth + 2;
-      return { navOpacity: cs ? cs.opacity : 'no-nav', bodyOverflowX: overflow };
+      const grid = document.querySelector('#hb-cat-grid .hb-cat-groups');
+      const groups = grid ? [...grid.querySelectorAll('.hb-cat-group')].map(g => g.getAttribute('data-cat') + ':' + (g.style.display || 'show')) : null;
+      return { navOpacity: cs ? cs.opacity : 'no-nav', bodyOverflowX: overflow, groups };
     });
     await page.screenshot({ path, fullPage });
     console.log(path, info);
