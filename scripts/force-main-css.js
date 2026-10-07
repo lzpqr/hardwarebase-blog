@@ -11,3 +11,9 @@ hexo.extend.filter.register('before_generate', function () {
     themeConfig.asset.main_css = 'css/index.min.css'
   }
 }, { priority: Infinity })
+
+// Dev-server CSS minify (watcher) intentionally removed: the production
+// pipeline (postgenerate -> minify-css.js) already writes a minified
+// public/css/index.css in place, so the served file is already small.
+// A live watcher that rewrites index.css can confuse hexo's file-watcher
+// and is not needed on this local setup.

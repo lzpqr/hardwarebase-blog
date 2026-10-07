@@ -232,7 +232,8 @@ inject:
         if (document.getElementById('hb-hero')) return;
         // Hero is injected into the post-list column (#recent-posts), not the flex
         // container (#content-inner): making it a flex item breaks the 74%/26% layout.
-        var host = document.getElementById('recent-posts') || document.getElementById('content-inner');
+        var host = document.getElementById('recent-posts');
+        if (!isHome) return;
         if (!host) return;
         var html = '<div class="hb-hero" id="hb-hero">'
           + '<div class="hb-hero-inner">'
@@ -276,7 +277,6 @@ inject:
         }
       });
       </script>
- 
- 
-asset: 
+
+asset:
   main_css: css/index.min.css
