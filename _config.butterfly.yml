@@ -253,40 +253,72 @@ inject:
         items.forEach(function (el) { el.classList.add('hb-index-item'); });
         if (items.length) items[0].classList.add('hb-index-item--lead');
 
-        // ---- 分类索引：按两个合集分组（流程 / 选型），每合集前 5 篇，仅标题 ----
-        var COL_LIMIT = 5;
+        // ---- 分类索引：按两个合集分组（流程 / 选型），完整索引，仅标题 ----
         var COLS = [
           { key: 'hardware-development', name: '硬件开发流程', link: '/collections/hardware-development/',
-            prefix: 'hardware-development-', total: 9 },
+            prefix: 'hardware-development-' },
           { key: 'component-selection', name: '硬件器件选型', link: '/collections/component-selection/',
-            prefix: 'component-selection-', total: 21 }
+            prefix: 'component-selection-' }
         ];
+        // 完整索引清单：按合集分组，顺序为稳定的展示顺序（不依赖首页只渲染的 8 篇）
+        var INDEX = {
+          'hardware-development': [
+            { slug: 'hardware-development-process', title: '硬件产品开发流程' },
+            { slug: 'hardware-development-requirements-analysis', title: '需求分析' },
+            { slug: 'hardware-development-solution-design', title: '方案设计' },
+            { slug: 'hardware-development-schematic-design', title: '原理图设计' },
+            { slug: 'hardware-development-pcb-design', title: 'PCB 设计' },
+            { slug: 'hardware-development-pcb-fabrication-assembly', title: 'PCB 制造与组装' },
+            { slug: 'hardware-development-debugging-validation', title: '调试验证' },
+            { slug: 'hardware-development-design-iteration', title: '设计迭代' },
+            { slug: 'hardware-development-production-introduction', title: '量产导入' }
+          ],
+          'component-selection': [
+            { slug: 'component-selection-resistor', title: '电阻' },
+            { slug: 'component-selection-capacitor', title: '电容' },
+            { slug: 'component-selection-inductor', title: '电感' },
+            { slug: 'component-selection-bead-transformer', title: '磁珠与变压器' },
+            { slug: 'component-selection-fuse', title: '保险丝' },
+            { slug: 'component-selection-diode', title: '二极管' },
+            { slug: 'component-selection-tvs', title: 'TVS 钳位二极管' },
+            { slug: 'component-selection-esd', title: 'ESD 保护器件' },
+            { slug: 'component-selection-transistor', title: '三极管' },
+            { slug: 'component-selection-mosfet', title: 'MOS 管' },
+            { slug: 'component-selection-optocoupler', title: '光耦' },
+            { slug: 'component-selection-crystal', title: '晶振' },
+            { slug: 'component-selection-ldo', title: 'LDO 稳压器' },
+            { slug: 'component-selection-dc-dc', title: 'DC-DC 转换器' },
+            { slug: 'component-selection-memory', title: '存储器' },
+            { slug: 'component-selection-ddr', title: 'DDR 存储器' },
+            { slug: 'component-selection-mcu', title: 'MCU' },
+            { slug: 'component-selection-watchdog', title: '看门狗' },
+            { slug: 'component-selection-adc', title: 'ADC' },
+            { slug: 'component-selection-dac', title: 'DAC' }
+          ]
+        };
         var hostEl = document.getElementById('hb-cat-grid');
         var grid = hostEl.querySelector('.hb-cat-groups');
         var posts = host.querySelectorAll('.recent-post-item');
         COLS.forEach(function (col, ci) {
-          var items = [];
+          var entries = INDEX[col.key] || [];
+          // 用首页上已有的文章卡片补真实标题，缺省用索引清单里的短标题
+          var titleBySlug = {};
           for (var i = 0; i < posts.length; i++) {
             var titleA = posts[i].querySelector('.article-title');
             if (!titleA) continue;
             var href = titleA.getAttribute('href') || '';
-            // 根据 slug 前缀判断属于哪个合集
-            if (href.indexOf('/posts/' + col.prefix) === 0) {
-              items.push(titleA);
-            }
+            var m = href.match(/\/posts\/(.+?)\/?$/);
+            if (m) titleBySlug[m[1]] = titleA.textContent;
           }
           var g = document.createElement('div');
           g.className = 'hb-cat-group';
           g.setAttribute('data-cat', col.key);
           var h = '<a class="hb-cat-name" href="' + col.link + '">' + col.name + '</a>';
           h += '<ul class="hb-cat-list">';
-          items.slice(0, COL_LIMIT).forEach(function (a) {
-            h += '<li><a href="' + a.getAttribute('href') + '" title="' + a.textContent + '">' + a.textContent + '</a></li>';
+          entries.forEach(function (e) {
+            var label = titleBySlug[e.slug] || e.title;
+            h += '<li><a href="/posts/' + e.slug + '/" title="' + label + '">' + label + '</a></li>';
           });
-          var total = (typeof col.total === 'number' && col.total > 0) ? col.total : items.length;
-          if (total > COL_LIMIT) {
-            h += '<li class="hb-cat-more"><a href="' + col.link + '">共 ' + total + ' 篇 →</a></li>';
-          }
           h += '</ul>';
           g.innerHTML = h;
           grid.appendChild(g);
