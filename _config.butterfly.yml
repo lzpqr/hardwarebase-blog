@@ -221,7 +221,8 @@ Open_Graph_meta:
 
 inject:
   head:
-    - '<link rel="stylesheet" href="/css/custom.css">'
+    # custom.css 已合并进 css/index.min.css（source/css/custom.css 被主题 index.styl @import）,
+    # 不再单独请求，避免浏览器多下载 6KB 并覆盖压缩版样式。
   bottom:
     - |
       <script>
@@ -275,3 +276,7 @@ inject:
         }
       });
       </script>
+ 
+ 
+asset: 
+  main_css: css/index.min.css
