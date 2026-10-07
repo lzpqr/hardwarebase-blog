@@ -229,8 +229,10 @@ inject:
         var isHome = window.location.pathname === '/' || window.location.pathname === '/index.html'
           || window.location.pathname === '/index.htm' || window.location.pathname === '/index';
         if (document.getElementById('hb-hero')) return;
-        var main = document.getElementById('content-inner');
-        if (!main) return;
+        // Hero is injected into the post-list column (#recent-posts), not the flex
+        // container (#content-inner): making it a flex item breaks the 74%/26% layout.
+        var host = document.getElementById('recent-posts') || document.getElementById('content-inner');
+        if (!host) return;
         var html = '<div class="hb-hero" id="hb-hero">'
           + '<div class="hb-hero-inner">'
           + '<p class="hb-hero-eyebrow">器件选型知识库</p>'
@@ -263,9 +265,9 @@ inject:
           + '<a href="/collections/hardware-development/">全部 9 篇 →</a>'
           + '</div>'
           + '</div></div>';
-        main.insertAdjacentHTML('afterbegin', html);
+        host.insertAdjacentHTML('afterbegin', html);
         if (isHome) {
-          var items = main.querySelectorAll('.recent-post-item');
+          var items = host.querySelectorAll('.recent-post-item');
           items.forEach(function (el) { el.classList.add('hb-index-item'); });
           if (items.length) items[0].classList.add('hb-index-item--lead');
         }
