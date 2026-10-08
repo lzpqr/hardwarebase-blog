@@ -304,7 +304,15 @@ inject:
             { slug: 'hardware-interface-protocol-i2c', title: 'I2C 接口' },
             { slug: 'hardware-interface-protocol-spi', title: 'SPI 接口' },
             { slug: 'hardware-interface-protocol-uart', title: 'UART 接口' },
-            { slug: 'hardware-interface-protocol-i2s', title: 'I2S 接口' }
+            { slug: 'hardware-interface-protocol-i2s', title: 'I2S 接口' },
+            { slug: 'hardware-interface-protocol-sdio', title: 'SDIO 接口' },
+            { slug: 'hardware-interface-protocol-jtag-swd', title: 'JTAG-SWD 接口' },
+            { slug: 'hardware-interface-protocol-usb', title: 'USB 接口' },
+            { slug: 'hardware-interface-protocol-pcie', title: 'PCIe 接口' },
+            { slug: 'hardware-interface-protocol-sata', title: 'SATA 接口' },
+            { slug: 'hardware-interface-protocol-mipi', title: 'MIPI 接口' },
+            { slug: 'hardware-interface-protocol-edp', title: 'eDP 接口' },
+            { slug: 'hardware-interface-protocol-hdmi-dp', title: 'HDMI-DP 接口' }
           ]
         };
         var hostEl = document.getElementById('hb-cat-grid');
