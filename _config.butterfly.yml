@@ -300,7 +300,11 @@ inject:
             { slug: 'component-selection-dac', title: 'DAC' }
           ],
           'hardware-interface-protocol': [
-            { slug: 'hardware-interface-protocol-overview', title: '接口协议总览' }
+            { slug: 'hardware-interface-protocol-overview', title: '接口协议总览' },
+            { slug: 'hardware-interface-protocol-i2c', title: 'I2C 接口' },
+            { slug: 'hardware-interface-protocol-spi', title: 'SPI 接口' },
+            { slug: 'hardware-interface-protocol-uart', title: 'UART 接口' },
+            { slug: 'hardware-interface-protocol-i2s', title: 'I2S 接口' }
           ]
         };
         var hostEl = document.getElementById('hb-cat-grid');
