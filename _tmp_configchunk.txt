@@ -1,0 +1,29 @@
+﻿版样式。
+  bottom:
+    - |
+      <script>
+      // Homepage-only, idempotent custom content:
+      //   hb-hero    - hero card ("硬件基础知识库")
+      //   hb-cat-grid - "分类索引" card: top 5 posts per category, titles only
+      document.addEventListener('DOMContentLoaded', function () {
+        var isHome = window.location.pathname === '/' || window.location.pathname === '/index.html'
+          || window.location.pathname === '/index.htm' || window.location.pathname === '/index';
+        if (!isHome || document.getElementById('hb-hero')) return;
+        // Inject into the post-list column (#recent-posts), not the flex
+        // container (#content-inner): making it a flex item breaks the 74%/26% layout.
+        var host = document.getElementById('recent-posts');
+        if (!host) return;
+        var html = '<div class="hb-hero" id="hb-hero">'
+          + '<div class="hb-hero-inner">'
+          + '<p class="hb-hero-eyebrow">硬件基础知识库</p>'
+          + '<h1 class="hb-hero-title">硬件基础知识库</h1>'
+          + '<p class="hb-hero-sub">从需求分析到量产导入的 9 篇开发流程方法，外加 20 篇常用器件选型参考。</p>'
+          + '</div></div>';
+        var catHtml = '<div class="hb-hero-cats" id="hb-cat-grid">'
+          + '<span class="hb-cat-eyebrow">分类索引</span>'
+          + '<div class="hb-cat-groups"></div>'
+          + '</div>';
+        host.insertAdjacentHTML('afterbegin', html + catHtml);
+
+        var items = host.querySelectorAll('.recent-post-item');
+        items.forEach(function (el) { el.classList.add('hb-index-item'); });

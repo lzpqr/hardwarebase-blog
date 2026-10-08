@@ -240,9 +240,8 @@ inject:
         if (!host) return;
         var html = '<div class="hb-hero" id="hb-hero">'
           + '<div class="hb-hero-inner">'
-          + '<p class="hb-hero-eyebrow">硬件基础知识库</p>'
           + '<h1 class="hb-hero-title">硬件基础知识库</h1>'
-          + '<p class="hb-hero-sub">从需求分析到量产导入的 9 篇开发流程方法，外加 20 篇常用器件选型参考。</p>'
+          + '<p class="hb-hero-sub">覆盖硬件设计全流程：需求分析、原理图设计、PCB 设计、调试验证与量产导入；常用器件选型参考；以及 I2C、SPI、UART、USB、PCIe、SATA、HDMI 等主流接口协议。</p>'
           + '</div></div>';
         var catHtml = '<div class="hb-hero-cats" id="hb-cat-grid">'
           + '<span class="hb-cat-eyebrow">分类索引</span>'
