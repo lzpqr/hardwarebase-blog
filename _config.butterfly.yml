@@ -253,8 +253,7 @@ inject:
         items.forEach(function (el) { el.classList.add('hb-index-item'); });
         if (items.length) items[0].classList.add('hb-index-item--lead');
 
-        // ---- 分类索引：按两个合集分组（流程 / 选型），完整索引，仅标题 ----
-        var CAT_GRID_LIMIT = 3;
+        // ---- 分类索引：按合集分组，完整索引，仅标题 ----
         var COLS = [
           { key: 'hardware-development', name: '硬件开发流程', link: '/collections/hardware-development/',
             prefix: 'hardware-development-' },
@@ -317,8 +316,7 @@ inject:
         var hostEl = document.getElementById('hb-cat-grid');
         var grid = hostEl.querySelector('.hb-cat-groups');
         var posts = host.querySelectorAll('.recent-post-item');
-        var visibleCols = COLS.slice(0, CAT_GRID_LIMIT);
-        visibleCols.forEach(function (col) {
+        COLS.forEach(function (col) {
           var entries = INDEX[col.key] || [];
           var g = document.createElement('div');
           g.className = 'hb-cat-group';
