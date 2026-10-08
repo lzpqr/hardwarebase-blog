@@ -265,10 +265,14 @@ body {
 
 .hb-cat-group {
   min-width: 0;
-  border: 1px solid var(--hb-border);
+  border: 1px solid rgba(111, 143, 186, 0.55);
   background: var(--hb-surface);
   border-radius: 8px;
   padding: 12px 14px;
+}
+
+[data-theme='dark'] .hb-cat-group {
+  border-color: rgba(143, 168, 200, 0.55);
 }
 
 .hb-cat-group--rest {
