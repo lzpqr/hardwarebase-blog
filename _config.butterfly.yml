@@ -226,7 +226,7 @@ inject:
     # 不再单独请求，避免浏览器多下载 6KB 并覆盖压缩版样式。
   bottom:
     - |
-      <script>
+      <script defer>
       // Homepage-only, idempotent custom content:
       //   hb-hero    - hero card ("硬件基础知识库")
       //   hb-cat-grid - "分类索引" card: top 5 posts per category, titles only
