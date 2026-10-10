@@ -310,7 +310,13 @@ inject:
             { slug: 'hardware-interface-protocol-sata', title: 'SATA 接口' },
             { slug: 'hardware-interface-protocol-mipi', title: 'MIPI 接口' },
             { slug: 'hardware-interface-protocol-edp', title: 'eDP 接口' },
-            { slug: 'hardware-interface-protocol-hdmi-dp', title: 'HDMI-DP 接口' }
+            { slug: 'hardware-interface-protocol-hdmi-dp', title: 'HDMI-DP 接口' },
+            { slug: 'hardware-interface-protocol-vpx', title: 'VPX 接口' },
+            { slug: 'hardware-interface-protocol-cpci', title: 'CPCI 接口' },
+            { slug: 'hardware-interface-protocol-srio', title: 'SRIO 接口' },
+            { slug: 'hardware-interface-protocol-aurora', title: 'Aurora 接口' },
+            { slug: 'hardware-interface-protocol-jesd204b', title: 'JESD204B 接口' },
+            { slug: 'hardware-interface-protocol-serdes', title: 'SerDes 接口' }
           ]
         };
         var hostEl = document.getElementById('hb-cat-grid');

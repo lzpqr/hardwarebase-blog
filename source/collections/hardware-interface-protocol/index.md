@@ -26,6 +26,12 @@ permalink: collections/hardware-interface-protocol/
 | 11 | [硬件接口协议之 MIPI 接口](/posts/hardware-interface-protocol-mipi/) | lane 数与带宽核算、协议包结构与虚拟通道、上电与数据流时序、射频共存与包地隔离 |
 | 12 | [硬件接口协议之 eDP 接口](/posts/hardware-interface-protocol-edp/) | 信号定义与速率链路、AUX 与热插拔、链路训练与 EDID 读取、上电与背光时序 |
 | 13 | [硬件接口协议之 HDMI-DP 接口](/posts/hardware-interface-protocol-hdmi-dp/) | HDMI/DP 信号定义与版本速率、内容保护机制、连接输出流程、ESD 防护与兼容性矩阵 |
+| 14 | [硬件接口协议之 VPX 接口](/posts/hardware-interface-protocol-vpx/) | 插座槽位与引脚定义、12V 电源与信号完整性、VPX Star/75Ω 变体、PCB 板框与连接器选型 |
+| 15 | [硬件接口协议之 CPCI 接口](/posts/hardware-interface-protocol-cpci/) | Z 总线引脚、热插拔电源时序、背板走线阻抗、连接器选型与 VITA 标准映射 |
+| 16 | [硬件接口协议之 SRIO 接口](/posts/hardware-interface-protocol-srio/) | 物理层速率与通道、Lan 拓扑与路由、链路训练与复位、PCB 走线阻抗与终端 |
+| 17 | [硬件接口协议之 Aurora 接口](/posts/hardware-interface-protocol-aurora/) | 协议架构（通道/流/帧）、速率与通道配置、PCB 走线阻抗与终端、FPGA 实现要点 |
+| 18 | [硬件接口协议之 JESD204B 接口](/posts/hardware-interface-protocol-jesd204b/) | Subclass A/B/C 编码、Lane 速率与配置、64b/66b 与 8b/10b 选择、多芯片同步 |
+| 19 | [硬件接口协议之 SerDes 接口](/posts/hardware-interface-protocol-serdes/) | 8b/10b 与 64b/66b/128b/130b 编码、CDR 与 PLL 时钟体系、均衡器设计、可靠性验证 |
 
 ## 计划收录的内容
 
