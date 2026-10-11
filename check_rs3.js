@@ -1,0 +1,1 @@
+const http=require("http"); http.get("http://127.0.0.1:4000/posts/hardware-development-process/", function(r){var d="";r.on("data",function(c){d+=c});r.on("end",function(){var has=d.includes("rightside");var lbl=d.includes("data-label");var god=d.includes("go-up");console.log("rightside:",has,"data-label:",lbl,"go-up:",god);process.exit(0);})})

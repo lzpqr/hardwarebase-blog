@@ -1,4 +1,4 @@
-/* 硬件Base：中文阅读优先的轻量补充样式 */
+/* 纭欢Base锛氫腑鏂囬槄璇讳紭鍏堢殑杞婚噺琛ュ厖鏍峰紡 */
 
 :root {
   --hb-blue: #6f8fba;
@@ -125,7 +125,7 @@ body {
   }
 }
 
-/* --- 首页 Hero（注入块渲染，见 _config.butterfly.yml inject.bottom） --- */
+/* --- 棣栭〉 Hero锛堟敞鍏ュ潡娓叉煋锛岃 _config.butterfly.yml inject.bottom锛?--- */
 #body-wrap.type-page.type-404 .hb-hero { display: none; }
 
 .hb-hero {
@@ -241,7 +241,7 @@ body {
   margin-top: 10px;
 }
 
-/* --- 首页分类索引：每分类前 5 篇，仅标题，不显示正文 --- */
+/* --- 棣栭〉鍒嗙被绱㈠紩锛氭瘡鍒嗙被鍓?5 绡囷紝浠呮爣棰橈紝涓嶆樉绀烘鏂?--- */
 .hb-hero-cats {
   margin-top: 22px;
   padding-top: 18px;
@@ -328,7 +328,7 @@ body {
   color: var(--hb-blue-strong);
 }
 
-/* 1 行 3 列在较窄屏幕放不下，回退为单列堆叠 */
+/* 1 琛?3 鍒楀湪杈冪獎灞忓箷鏀句笉涓嬶紝鍥為€€涓哄崟鍒楀爢鍙?*/
 @media (max-width: 1023px) {
   .hb-cat-groups {
     grid-template-columns: 1fr;
@@ -367,7 +367,7 @@ body {
   }
 }
 
-/* 首页系列导航卡：弱化标题（标题已出现在 Hero 与侧栏），正文作为导语 */
+/* 棣栭〉绯诲垪瀵艰埅鍗★細寮卞寲鏍囬锛堟爣棰樺凡鍑虹幇鍦?Hero 涓庝晶鏍忥級锛屾鏂囦綔涓哄璇?*/
 .hb-index-item {
   border-left: 3px solid var(--hb-blue);
 }
@@ -377,12 +377,12 @@ body {
   background: var(--hb-surface);
 }
 
-/* --- 首页列表卡：标题瘦身（正文承担导读） --- */
+/* --- 棣栭〉鍒楄〃鍗★細鏍囬鐦﹁韩锛堟鏂囨壙鎷呭璇伙級 --- */
 #content-inner .recent-post-item .article-title {
   font-size: 17px;
 }
 
-/* --- 页脚改浅色：去掉深色块 --- */
+/* --- 椤佃剼鏀规祬鑹诧細鍘绘帀娣辫壊鍧?--- */
 #footer {
   background: transparent !important;
 }
@@ -392,7 +392,7 @@ body {
   display: none !important;
 }
 
-/* 移动端：Hero 收紧、元信息单行、侧栏自然降序 */
+/* 绉诲姩绔細Hero 鏀剁揣銆佸厓淇℃伅鍗曡銆佷晶鏍忚嚜鐒堕檷搴?*/
 @media (max-width: 768px) {
   .hb-hero {
     margin: 0 0 18px;
@@ -473,8 +473,8 @@ body {
   color: #fff;
 }
 
-/* --- 右侧按钮常驻显示 --- */
-/* --- 右侧按钮常驻显示 + 优化 --- */
+/* --- 鍙充晶鎸夐挳甯搁┗鏄剧ず --- */
+/* --- 鍙充晶鎸夐挳甯搁┗鏄剧ず + 浼樺寲 --- */
 #rightside {
   right: 12px !important;
 }
@@ -506,3 +506,8 @@ body {
   flex-direction: column;
   gap: 8px !important;
 }
+
+#rightside>div{position:relative}
+#rightside>div>a,#rightside>div>button{position:relative}
+#rightside>div>a::before,#rightside>div>button::before{content:attr(data-label);position:absolute;left:50%;top:-22px;transform:translateX(-50%);white-space:nowrap;font-size:11px;font-weight:500;color:var(--text-font-color,rgba(44,62,80,0.8));background:transparent;padding:0;pointer-events:none;z-index:101}
+#rightside #rightside-config::before,#rightside #rightside-config::after{display:none}

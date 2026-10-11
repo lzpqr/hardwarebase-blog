@@ -1,0 +1,14 @@
+const fs = require('fs');
+const p1 = 'H:/ai/codex/web/node_modules/hexo-theme-butterfly/layout/includes/rightside.pug';
+const p2 = 'H:/ai/codex/web/_butterfly_tmp/package/layout/includes/rightside.pug';
+let s = fs.readFileSync(p1, 'utf8');
+s = s.replace("button#readmode(type=\"button\" title=_p('rightside.readmode_title'))", "button#readmode(type=\"button\" title=_p('rightside.readmode_title') data-label=\"阅读\")");
+s = s.replace("button#darkmode(type=\"button\" title=_p('rightside.night_mode_title'))", "button#darkmode(type=\"button\" title=_p('rightside.night_mode_title') data-label=\"主题\")");
+s = s.replace("button#hide-aside-btn(type=\"button\" title=_p('rightside.aside'))", "button#hide-aside-btn(type=\"button\" title=_p('rightside.aside') data-label=\"侧栏\")");
+s = s.replace('button#mobile-toc-button.close(type="button" title=_p("rightside.toc"))', 'button#mobile-toc-button.close(type="button" title=_p("rightside.toc") data-label="目录")');
+s = s.replace('button#go-up(type="button" title=_p("rightside.back_to_top"))', 'button#go-up(type="button" title=_p("rightside.back_to_top") data-label="顶部")');
+s = s.replace("button#translateLink(type=\"button\" title=_p('rightside.translate_title'))", "button#translateLink(type=\"button\" title=_p('rightside.translate_title') data-label=\"翻译\")");
+s = s.replace('button#rightside-config(type="button" title=_p("rightside.setting"))', 'button#rightside-config(type="button" title=_p("rightside.setting") data-label="设置")');
+fs.writeFileSync(p1, s, 'utf8');
+fs.writeFileSync(p2, s, 'utf8');
+console.log('labels added ok');

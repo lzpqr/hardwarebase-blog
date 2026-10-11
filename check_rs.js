@@ -1,0 +1,1 @@
+const http=require("http"); http.get("http://127.0.0.1:4000/", function(r){var d="";r.on("data",function(c){d+=c});r.on("end",function(){var m=d.match(/data-label="[^"]*"/g);console.log(m?m.join("\n"):"not found");process.exit(0);})})

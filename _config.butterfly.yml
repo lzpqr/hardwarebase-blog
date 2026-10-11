@@ -345,6 +345,10 @@ inject:
         if (pager) pager.style.display = 'none';
       });
       </script>
+      <script defer>
+      // Rightside button labels - runs on ALL pages
+      (function(){var labels={readmode:"阅读",darkmode:"主题","hide-aside-btn":"侧栏","mobile-toc-button":"目录","go-up":"顶部",translateLink:"翻译","rightside-config":"设置"};Object.keys(labels).forEach(function(id){var el=document.getElementById(id);if(el)el.setAttribute("data-label",labels[id]);});})();
+      </script>
 
 asset:
   main_css: css/index.min.css
