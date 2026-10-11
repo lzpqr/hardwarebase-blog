@@ -472,3 +472,12 @@ body {
   background: #5d82b4;
   color: #fff;
 }
+
+/* --- 右侧按钮常驻显示 --- */
+#rightside {
+  right: 0 !important;
+}
+#rightside.rightside-show {
+  opacity: 0.8;
+  transform: translate(0, 0) !important;
+}
