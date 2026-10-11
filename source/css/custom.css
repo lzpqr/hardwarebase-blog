@@ -474,10 +474,35 @@ body {
 }
 
 /* --- 右侧按钮常驻显示 --- */
+/* --- 右侧按钮常驻显示 + 优化 --- */
 #rightside {
-  right: 0 !important;
+  right: 12px !important;
 }
 #rightside.rightside-show {
-  opacity: 0.8;
+  opacity: 0.9 !important;
   transform: translate(0, 0) !important;
+}
+#rightside>div>a,
+#rightside>div>button {
+  width: 40px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
+  transition: all 0.25s ease !important;
+}
+#rightside>div>a:hover,
+#rightside>div>button:hover {
+  transform: translateY(-2px) scale(1.08) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18) !important;
+}
+#rightside>div>a i,
+#rightside>div>button i {
+  font-size: 17px !important;
+  vertical-align: middle !important;
+}
+#rightside>div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px !important;
 }
