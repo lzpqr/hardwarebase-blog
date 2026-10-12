@@ -1,4 +1,4 @@
-/* 纭欢Base锛氫腑鏂囬槄璇讳紭鍏堢殑杞婚噺琛ュ厖鏍峰紡 */
+/* 绾兛娆ase閿涙矮鑵戦弬鍥鐠囪绱崗鍫㈡畱鏉炲鍣虹悰銉ュ帠閺嶅嘲绱?*/
 
 :root {
   --hb-blue: #6f8fba;
@@ -125,7 +125,7 @@ body {
   }
 }
 
-/* --- 棣栭〉 Hero锛堟敞鍏ュ潡娓叉煋锛岃 _config.butterfly.yml inject.bottom锛?--- */
+/* --- 妫ｆ牠銆?Hero閿涘牊鏁為崗銉ユ健濞撳弶鐓嬮敍宀冾潌 _config.butterfly.yml inject.bottom閿?--- */
 #body-wrap.type-page.type-404 .hb-hero { display: none; }
 
 .hb-hero {
@@ -241,7 +241,7 @@ body {
   margin-top: 10px;
 }
 
-/* --- 棣栭〉鍒嗙被绱㈠紩锛氭瘡鍒嗙被鍓?5 绡囷紝浠呮爣棰橈紝涓嶆樉绀烘鏂?--- */
+/* --- 妫ｆ牠銆夐崚鍡欒缁便垹绱╅敍姘槨閸掑棛琚崜?5 缁″浄绱濇禒鍛垼妫版﹫绱濇稉宥嗘▔缁€鐑橆劀閺?--- */
 .hb-hero-cats {
   margin-top: 22px;
   padding-top: 18px;
@@ -328,7 +328,7 @@ body {
   color: var(--hb-blue-strong);
 }
 
-/* 1 琛?3 鍒楀湪杈冪獎灞忓箷鏀句笉涓嬶紝鍥為€€涓哄崟鍒楀爢鍙?*/
+/* 1 鐞?3 閸掓婀潏鍐崕鐏炲繐绠烽弨鍙ョ瑝娑撳绱濋崶鐐衡偓鈧稉鍝勫礋閸掓鐖㈤崣?*/
 @media (max-width: 1023px) {
   .hb-cat-groups {
     grid-template-columns: 1fr;
@@ -367,7 +367,7 @@ body {
   }
 }
 
-/* 棣栭〉绯诲垪瀵艰埅鍗★細寮卞寲鏍囬锛堟爣棰樺凡鍑虹幇鍦?Hero 涓庝晶鏍忥級锛屾鏂囦綔涓哄璇?*/
+/* 妫ｆ牠銆夌化璇插灙鐎佃壈鍩呴崡鈽呯窗瀵崬瀵查弽鍥暯閿涘牊鐖ｆ０妯哄嚒閸戣櫣骞囬崷?Hero 娑撳簼鏅堕弽蹇ョ礆閿涘本顒滈弬鍥︾稊娑撳搫顕辩拠?*/
 .hb-index-item {
   border-left: 3px solid var(--hb-blue);
 }
@@ -377,12 +377,12 @@ body {
   background: var(--hb-surface);
 }
 
-/* --- 棣栭〉鍒楄〃鍗★細鏍囬鐦﹁韩锛堟鏂囨壙鎷呭璇伙級 --- */
+/* --- 妫ｆ牠銆夐崚妤勩€冮崡鈽呯窗閺嶅洭顣介惁锕侀煩閿涘牊顒滈弬鍥ㄥ閹峰懎顕辩拠浼欑礆 --- */
 #content-inner .recent-post-item .article-title {
   font-size: 17px;
 }
 
-/* --- 椤佃剼鏀规祬鑹诧細鍘绘帀娣辫壊鍧?--- */
+/* --- 妞や絻鍓奸弨瑙勭ガ閼硅绱伴崢缁樺竴濞ｈ精澹婇崸?--- */
 #footer {
   background: transparent !important;
 }
@@ -392,7 +392,7 @@ body {
   display: none !important;
 }
 
-/* 绉诲姩绔細Hero 鏀剁揣銆佸厓淇℃伅鍗曡銆佷晶鏍忚嚜鐒堕檷搴?*/
+/* 缁夎濮╃粩顖ょ窗Hero 閺€鍓佹彛閵嗕礁鍘撴穱鈩冧紖閸楁洝顢戦妴浣锋櫠閺嶅繗鍤滈悞鍫曟鎼?*/
 @media (max-width: 768px) {
   .hb-hero {
     margin: 0 0 18px;
@@ -473,8 +473,8 @@ body {
   color: #fff;
 }
 
-/* --- 鍙充晶鎸夐挳甯搁┗鏄剧ず --- */
-/* --- 鍙充晶鎸夐挳甯搁┗鏄剧ず + 浼樺寲 --- */
+/* --- 閸欏厖鏅堕幐澶愭尦鐢悂鈹楅弰鍓с仛 --- */
+/* --- 閸欏厖鏅堕幐澶愭尦鐢悂鈹楅弰鍓с仛 + 娴兼ê瀵?--- */
 #rightside {
   right: 12px !important;
 }
@@ -511,3 +511,6 @@ body {
 #rightside>div>a,#rightside>div>button{position:relative}
 #rightside>div>a::before,#rightside>div>button::before{content:attr(data-label);position:absolute;left:50%;top:-22px;transform:translateX(-50%);white-space:nowrap;font-size:11px;font-weight:500;color:var(--text-font-color,rgba(44,62,80,0.8));background:transparent;padding:0;pointer-events:none;z-index:101}
 #rightside #rightside-config::before,#rightside #rightside-config::after{display:none}
+
+/* 覆盖主题 overflow:hidden，使按钮标签常驻可见 */
+#rightside>div>a,#rightside>div>button{overflow:visible !important}
