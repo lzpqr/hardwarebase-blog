@@ -514,3 +514,27 @@ body {
 
 /* 覆盖主题 overflow:hidden，使按钮标签常驻可见 */
 #rightside>div>a,#rightside>div>button{overflow:visible !important}
+
+/* readmode 按钮：文字标签居中于圆内，黑色字体 */
+#readmode{position:relative;display:flex;align-items:center;justify-content:center}
+#readmode::before{
+  position:absolute;
+  left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  color:#1a1a1a;
+  font-size:10px;font-weight:600;
+  z-index:102;
+  pointer-events:none;
+}
+#readmode i{position:relative;z-index:1}
+#readmode::before{display:none}
+
+/* 全屏模式：文字显示在圆内中央 */
+body.hb-fullscreen #readmode::before{
+  display:block;
+  font-size:9px;
+}
+body.hb-fullscreen{
+  overflow:hidden;
+  background:#fff;
+}

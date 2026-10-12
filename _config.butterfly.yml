@@ -125,7 +125,12 @@ aside:
     runtime_date: 2026/10/01
 
 rightside_scroll_percent: true
-
+translate:
+  enable: false
+rightside_item_order:
+  enable: true
+  hide: translate,darkmode,hideAside
+  show: readmode
 darkmode:
   enable: true
   button: true
@@ -346,8 +351,52 @@ inject:
       });
       </script>
       <script defer>
-      // Rightside button labels - runs on ALL pages
-      (function(){var labels={readmode:"阅读",darkmode:"主题","hide-aside-btn":"侧栏","mobile-toc-button":"目录","go-up":"顶部",translateLink:"翻译","rightside-config":"设置"};Object.keys(labels).forEach(function(id){var el=document.getElementById(id);if(el)el.setAttribute("data-label",labels[id]);});})();
+      // Rightside button labels + fullscreen readmode - runs on ALL pages
+      (function(){
+        var labels={go-up:"顶部"};
+        Object.keys(labels).forEach(function(id){
+          var el=document.getElementById(id);
+          if(el)el.setAttribute("data-label",labels[id]);
+        });
+        // Fullscreen readmode
+        var btn=document.getElementById('readmode');
+        if(btn){
+          var isFs=false;
+          btn.addEventListener('click',function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            if(!isFs){
+              // Enter fullscreen
+              var el=document.documentElement;
+              var p=el.requestFullscreen?el.requestFullscreen()
+                :el.webkitRequestFullscreen?el.webkitRequestFullscreen()
+                :el.msRequestFullscreen?el.msRequestFullscreen():null;
+              if(p)p.catch?
+                p.catch(function(){/* fallback */}):null;
+              isFs=true;
+              btn.setAttribute('data-label','退出');
+              btn.querySelector('i').className='fas fa-compress';
+              document.body.classList.add('hb-fullscreen');
+            }else{
+              // Exit fullscreen
+              if(document.fullscreenElement||document.webkitFullscreenElement){
+                (document.exitFullscreen||document.webkitExitFullscreen||document.msExitFullscreen).call(document);
+              }else{
+                isFs=false;
+              }
+              document.addEventListener('fullscreenchange',function onFs(){
+                if(!document.fullscreenElement){
+                  isFs=false;
+                  btn.setAttribute('data-label','阅读');
+                  btn.querySelector('i').className='fas fa-book-open';
+                  document.body.classList.remove('hb-fullscreen');
+                  document.removeEventListener('fullscreenchange',onFs);
+                }
+              });
+            }
+          });
+        }
+      })();
       </script>
 
 asset:
