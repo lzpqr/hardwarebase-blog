@@ -515,26 +515,26 @@ body {
 /* 覆盖主题 overflow:hidden，使按钮标签常驻可见 */
 #rightside>div>a,#rightside>div>button{overflow:visible !important}
 
-/* readmode 按钮：文字标签居中于圆内，黑色字体 */
-#readmode{position:relative;display:flex;align-items:center;justify-content:center}
+/* readmode：圆内居中显示文字（默认"阅读"，全屏后变"退出"），黑色字体 */
+#readmode{display:flex !important;align-items:center;justify-content:center}
 #readmode::before{
   position:absolute;
-  left:50%;top:50%;
-  transform:translate(-50%,-50%);
-  color:#1a1a1a;
-  font-size:10px;font-weight:600;
+  left:50%;top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  font-size:10px !important;
+  font-weight:600 !important;
+  color:#1a1a1a !important;
   z-index:102;
   pointer-events:none;
 }
-#readmode i{position:relative;z-index:1}
-#readmode::before{display:none}
+#readmode i{
+  position:relative;
+  z-index:101;
+  opacity:0 !important;
+}
+/* 深色主题下文字反白，保证可读 */
+[data-theme='dark'] #readmode::before{color:#f5f5f5 !important}
 
-/* 全屏模式：文字显示在圆内中央 */
-body.hb-fullscreen #readmode::before{
-  display:block;
-  font-size:9px;
-}
-body.hb-fullscreen{
-  overflow:hidden;
-  background:#fff;
-}
+/* 全屏阅读模式：锁定滚动、隐藏侧边栏 */
+body.hb-fullscreen{overflow:hidden}
+body.hb-fullscreen #aside-content{display:none}

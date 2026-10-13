@@ -351,53 +351,58 @@ inject:
       });
       </script>
       <script defer>
-      // Rightside button labels + fullscreen readmode - runs on ALL pages
+      // Rightside button labels + fullscreen read mode - runs on ALL pages
       (function(){
-        var labels={go-up:"顶部"};
-        Object.keys(labels).forEach(function(id){
-          var el=document.getElementById(id);
-          if(el)el.setAttribute("data-label",labels[id]);
-        });
-        // Fullscreen readmode
-        var btn=document.getElementById('readmode');
-        if(btn){
-          var isFs=false;
-          btn.addEventListener('click',function(e){
-            e.preventDefault();
-            e.stopPropagation();
-            if(!isFs){
-              // Enter fullscreen
-              var el=document.documentElement;
-              var p=el.requestFullscreen?el.requestFullscreen()
-                :el.webkitRequestFullscreen?el.webkitRequestFullscreen()
-                :el.msRequestFullscreen?el.msRequestFullscreen():null;
-              if(p)p.catch?
-                p.catch(function(){/* fallback */}):null;
-              isFs=true;
-              btn.setAttribute('data-label','退出');
-              btn.querySelector('i').className='fas fa-compress';
-              document.body.classList.add('hb-fullscreen');
-            }else{
-              // Exit fullscreen
-              if(document.fullscreenElement||document.webkitFullscreenElement){
-                (document.exitFullscreen||document.webkitExitFullscreen||document.msExitFullscreen).call(document);
-              }else{
-                isFs=false;
-              }
-              document.addEventListener('fullscreenchange',function onFs(){
-                if(!document.fullscreenElement){
-                  isFs=false;
-                  btn.setAttribute('data-label','阅读');
-                  btn.querySelector('i').className='fas fa-book-open';
-                  document.body.classList.remove('hb-fullscreen');
-                  document.removeEventListener('fullscreenchange',onFs);
-                }
-              });
-            }
+        // Always-visible labels
+        (function(){
+          var labels={'go-up':'顶部','darkmode':'主题','readmode':'阅读'};
+          Object.keys(labels).forEach(function(id){
+            var el=document.getElementById(id);
+            if(el)el.setAttribute('data-label',labels[id]);
           });
+        })();
+        // Intercept theme readmode: combine theme read-mode class with browser fullscreen
+        var btn=document.getElementById('readmode');
+        if(btn)btn.addEventListener('click',function(){
+          requestFullscreenToggle();
+        },true);
+        function requestFullscreenToggle(){
+          var body=document.body;
+          var inFs=!!(document.fullscreenElement||document.webkitFullscreenElement);
+          if(!inFs){
+            var d=document.documentElement;
+            var fn=d.requestFullscreen||d.webkitRequestFullscreen||d.msRequestFullscreen;
+            var p=fn?fn.call(d):null;
+            if(p&&p.catch)p.catch(function(){});
+          }
         }
+        function onFsChange(){
+          var inFs=!!(document.fullscreenElement||document.webkitFullscreenElement);
+          var body=document.body;
+          var btn=document.getElementById('readmode');
+          if(inFs){
+            body.classList.add('read-mode','hb-fullscreen');
+            if(btn){
+              btn.setAttribute('data-label','退出');
+              var i=btn.querySelector('i');
+              if(i)i.classList.remove('fa-book-open');i.classList.add('fa-compress');
+            }
+            // Remove the theme's own exit-readmode button (we use the rightside button instead)
+            var extra=document.querySelector('.exit-readmode');
+            if(extra)extra.remove();
+          }else{
+            body.classList.remove('read-mode','hb-fullscreen');
+            if(btn){
+              btn.setAttribute('data-label','阅读');
+              var i=btn.querySelector('i');
+              i.classList.remove('fa-compress');i.classList.add('fa-book-open');
+            }
+          }
+        }
+        document.addEventListener('fullscreenchange',onFsChange);
+        document.addEventListener('webkitfullscreenchange',onFsChange);
       })();
       </script>
 
 asset:
-  main_css: css/index.min.css
+  main_css: css/index.css
