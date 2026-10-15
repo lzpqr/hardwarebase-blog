@@ -300,7 +300,10 @@ inject:
             { slug: 'component-selection-mcu', title: 'MCU' },
             { slug: 'component-selection-watchdog', title: '看门狗' },
             { slug: 'component-selection-adc', title: 'ADC' },
-            { slug: 'component-selection-dac', title: 'DAC' }
+            { slug: 'component-selection-dac', title: 'DAC' },
+            { slug: 'component-selection-sensor-rf', title: '传感器与射频' },
+            { slug: 'component-selection-connector-structure', title: '连接器与结构件' },
+            { slug: 'component-selection-domestic-dualsource', title: '国产替代与双源' }
           ],
           'hardware-interface-protocol': [
             { slug: 'hardware-interface-protocol-overview', title: '接口协议总览' },

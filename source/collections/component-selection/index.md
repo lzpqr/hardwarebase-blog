@@ -38,9 +38,9 @@ permalink: collections/component-selection/
 | 19 | 看门狗篇 | 外部 WDT 定位、分类（标准/窗口/问答式）、核心参数、主流型号对照、场景推荐、ISO 26262 要求与七大避坑 | [已发布](/posts/component-selection-watchdog/) |
 | 20 | ADC篇 | 五步选型法、六大架构对比、ENOB/SNR/SFDR/抖动、基准与抗混叠、场景-架构对照、八步选型流程 | [已发布](/posts/component-selection-adc/) |
 | 21 | DAC篇 | 五种主流架构、INL/DNL/建立时间/毛刺/基准温漂、输出与接口特性、七步收敛法与检查清单 | [已发布](/posts/component-selection-dac/) |
-| 22 | 传感器与射频器件 | 精度、噪声、匹配、封装和标定 | 规划中 |
-| 23 | 连接器与结构件 | 电流、插拔寿命、装配和可维修性 | 规划中 |
-| 24 | 国产替代与双源 | 替换验证、风险控制和供应保障 | 规划中 |
+| 22 | 传感器与射频器件 | 需求到指标的翻译、六核心参数、ADC 前端匹配、射频链路预算、NF/NFT/P1dB/PAE/VSWR、封装寄生与标定 | [已发布](/posts/component-selection-sensor-rf/) |
+| 23 | 连接器与结构件 | 载流降额、接触电阻与微动、绝缘耐压、机械与防护等级、散热热阻、装配扭矩与可维护性，汽车/工业/高速专项 | [已发布](/posts/component-selection-connector-structure/) |
+| 24 | 国产替代与双源 | L1/L2/L3 三级判据、能不能与值不值、双供应商/双料号/双物料来源、验证流程与 EOL 预案 | [已发布](/posts/component-selection-domestic-dualsource/) |
 
 > 注：第 15 行"电源芯片"已拆分为 LDO篇（14）与 DC/DC电源芯片篇（15）分别发布；第 16~18 行中"存储"拆分为 存储器篇（16）与 DDR篇（17），MCU、SoC 与 FPGA 中的 MCU 已发布（18），SoC/FPGA 仍规划中；看门狗、ADC、DAC 也已发布（19~21）。
 
